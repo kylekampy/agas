@@ -1,0 +1,20 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Username:</b>
+  <%= @administrator.username %>
+</p>
+
+<p>
+  <b>Password hash:</b>
+  <%= @administrator.password_hash %>
+</p>
+
+<p>
+  <b>Password salt:</b>
+  <%= @administrator.password_salt %>
+</p>
+
+
+<%= link_to 'Edit', edit_administrator_path(@administrator) %> |
+<%= link_to 'Back', administrators_path %>

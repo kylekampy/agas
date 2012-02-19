@@ -1,5 +1,5 @@
 source 'http://rubygems.org'
-
+gem "bcrypt-ruby", :require => "bcrypt"
 gem 'rails', '3.1.3'
 
 # Bundle edge Rails instead:

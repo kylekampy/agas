@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  phone_type: MyString
+  phone: MyString
+  owner_type: MyString
+  owner_id: 1
+
+two:
+  phone_type: MyString
+  phone: MyString
+  owner_type: MyString
+  owner_id: 1

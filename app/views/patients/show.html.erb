@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Primary phy:</b>
+  <%= @patient.primary_phy_id %>
+</p>
+
+<p>
+  <b>Date of birth:</b>
+  <%= @patient.date_of_birth %>
+</p>
+
+<p>
+  <b>Pharmacy:</b>
+  <%= @patient.pharmacy_id %>
+</p>
+
+<p>
+  <b>Insurance:</b>
+  <%= @patient.insurance_id %>
+</p>
+
+
+<%= link_to 'Edit', edit_patient_path(@patient) %> |
+<%= link_to 'Back', patients_path %>
