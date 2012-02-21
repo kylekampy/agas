@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+    <xs:element name="appointment">
+        <xs:complexType>
+          <xs:sequence>
+           <xs:element name="id" type="xs:integer"/>
+           <xs:element name="patient_id" type="xs:integer"/>
+           <xs:element name="pysician_id" type="xs:integer"/>
+           <xs:element name="start_time" type="xs:string"/>
+           <xs:element name="end_time" type="xs:string"/>
+        </xs:sequence>
+    </xs:complexType>
+</xs:element>
+
