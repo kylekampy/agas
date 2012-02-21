@@ -3,13 +3,13 @@
 one:
   specialty: MyString
   office_num: 1
-  username: MyString
-  password_hash: MyString
-  password_salt: MyString
+  #username: MyString
+  #password_hash: MyString
+  #password_salt: MyString
 
 two:
   specialty: MyString
   office_num: 1
-  username: MyString
-  password_hash: MyString
-  password_salt: MyString
+  #username: MyString
+  #password_hash: MyString
+  #password_salt: MyString
