@@ -1,12 +1,12 @@
 <?xml version="1.0"?>
-<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" version="1.0" xmlns="http://agas/appointment">
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
 
     <xs:element name="appointment">
         <xs:complexType>
             <xs:sequence>
                <xs:element name="id" type="xs:integer"/>
                <xs:element name="patient_id" type="xs:integer"/>
-               <xs:element name="pysician_id" type="xs:integer"/>
+               <xs:element name="physician_id" type="xs:integer"/>
                <xs:element name="start_time" type="xs:string"/>
                <xs:element name="end_time" type="xs:string"/>
             </xs:sequence>

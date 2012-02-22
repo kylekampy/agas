@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<appointment xmlns="http://agas/appointment" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<appointment xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <id>1</id>
   <patient_id>18</patient_id>
   <physician_id>13</physician_id>
