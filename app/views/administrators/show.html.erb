@@ -5,16 +5,7 @@
   <%= @administrator.username %>
 </p>
 
-<p>
-  <b>Password hash:</b>
-  <%= @administrator.password_hash %>
-</p>
-
-<p>
-  <b>Password salt:</b>
-  <%= @administrator.password_salt %>
-</p>
-
+<% #Maybe a link to change password in here? %>
 
 <%= link_to 'Edit', edit_administrator_path(@administrator) %> |
 <%= link_to 'Back', administrators_path %>

@@ -3,8 +3,6 @@
 <table>
   <tr>
     <th>Username</th>
-    <th>Password hash</th>
-    <th>Password salt</th>
     <th></th>
     <th></th>
     <th></th>
@@ -13,8 +11,7 @@
 <% @administrators.each do |administrator| %>
   <tr>
     <td><%= administrator.username %></td>
-    <td><%= administrator.password_hash %></td>
-    <td><%= administrator.password_salt %></td>
+    <% #password stuff? %>
     <td><%= link_to 'Show', administrator %></td>
     <td><%= link_to 'Edit', edit_administrator_path(administrator) %></td>
     <td><%= link_to 'Destroy', administrator, :confirm => 'Are you sure?', :method => :delete %></td>
