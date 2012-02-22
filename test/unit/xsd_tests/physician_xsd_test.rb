@@ -6,12 +6,12 @@ class PhysicianXSDTest < ActiveSupport::TestCase
   phys1_xml = File.expand_path("test/unit/xsd_tests/test_xmls/physician_1.xml")
   phys_xsd = File.expand_path("public/xsd/physician.xsd")
 
-  test "files_exist" do
+  test "phys_files_exist" do
     assert File.exists?(phys1_xml)
     assert File.exists?(phys_xsd)
   end
 
-  test "valid_xml_for_schema" do
+  test "valid_phys_xml_for_schema" do
     doc = Nokogiri::XML(File.read(phys1_xml))
     xsd = Nokogiri::XML::Schema(File.read(phys_xsd))
 

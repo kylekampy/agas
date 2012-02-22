@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<patient xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <id>1</id>
+  <primary_phy_id>43</primary_phy_id>
+  <date_of_birth>2002-09-24</date_of_birth>
+  <pharmacy_id>1</pharmacy_id>
+  <insurance_id>1</insurance_id>
+</patient>

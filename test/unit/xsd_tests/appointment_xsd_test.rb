@@ -6,12 +6,12 @@ class AppointmentXSDTest < ActiveSupport::TestCase
   apt1_xml = File.expand_path("test/unit/xsd_tests/test_xmls/appointment_1.xml")
   apt_xsd = File.expand_path("public/xsd/appointment.xsd")
 
-  test "files_exist" do
+  test "apt_files_exist" do
     assert File.exists?(apt1_xml)
     assert File.exists?(apt_xsd)
   end
 
-  test "valid_xml_for_schema" do
+  test "valid_apt_xml_for_schema" do
     doc = Nokogiri::XML(File.read(apt1_xml))
     xsd = Nokogiri::XML::Schema(File.read(apt_xsd))
 
