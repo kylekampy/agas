@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  start_time: 2012-02-11 21:46:02
+  end_time: 2012-02-11 21:46:02
+  phy_id: 1
+  pat_id: 1
+
+two:
+  start_time: 2012-02-11 21:46:02
+  end_time: 2012-02-11 21:46:02
+  phy_id: 1
+  pat_id: 1

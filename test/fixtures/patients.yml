@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  primary_phy_id: 1
+  date_of_birth: 2012-02-11
+  pharmacy_id: 1
+  insurance_id: 1
+
+two:
+  primary_phy_id: 1
+  date_of_birth: 2012-02-11
+  pharmacy_id: 1
+  insurance_id: 1
