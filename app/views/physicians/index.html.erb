@@ -1,10 +1,9 @@
-<h1>Listing physicians</h1>
+<% content_for :title, "Physician List" %>
 
 <table>
   <tr>
     <th>Specialty</th>
     <th>Office num</th>
-    <th>Username</th>
     <th></th>
     <th></th>
     <th></th>
@@ -14,7 +13,6 @@
   <tr>
     <td><%= physician.specialty %></td>
     <td><%= physician.office_num %></td>
-    <td><%= physician.username %></td>
     <% #password stuff? %>
     <td><%= link_to 'Show', physician %></td>
     <td><%= link_to 'Edit', edit_physician_path(physician) %></td>

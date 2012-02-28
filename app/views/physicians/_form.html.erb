@@ -1,4 +1,4 @@
-<%= form_for(@physician) do |f| %>
+<%= nested_form_for(@physician) do |f| %>
   <% if @physician.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@physician.errors.count, "error") %> prohibited this physician from being saved:</h2>
@@ -12,6 +12,18 @@
   <% end %>
 
   <div class="field">
+    <%= f.label :firstname%><br />
+    <%= f.text_field :firstname%>
+  </div>
+  <div class="field">
+    <%= f.label :middlename%><br />
+    <%= f.text_field :middlename%>
+  </div>
+  <div class="field">
+    <%= f.label :lastname%><br />
+    <%= f.text_field :lastname%>
+  </div>
+  <div class="field">
     <%= f.label :specialty %><br />
     <%= f.text_field :specialty %>
   </div>
@@ -19,12 +31,18 @@
     <%= f.label :office_num %><br />
     <%= f.number_field :office_num %>
   </div>
-  <div class="field">
-    <%= f.label :username %><br />
-    <%= f.text_field :username %>
-  </div>
+   <%= f.fields_for :login do |login| %>
+	<%= render :partial => "logins/login_fields",:locals => { :f => login } %> 
+   <% end %>
 
-  <% #TODO: Password stuff. %>
+  <%= f.fields_for :addresses%>
+<p><%= f.link_to_add "Add Address", :addresses%></p>
+
+  <%= f.fields_for :phones%>
+<p><%= f.link_to_add "Add Phone", :phones%></p>
+
+  <%= f.fields_for :emails  %>
+<p><%= f.link_to_add "Add Email", :emails %></p>
 
   <div class="actions">
     <%= f.submit %>

@@ -1,5 +1,19 @@
+<% content_for :title, "Physician" %>
+
 <p id="notice"><%= notice %></p>
 
+<p>
+  <b>First name:</b>
+  <%= @physician.firstname%>
+</p>
+<p>
+  <b>Middle name:</b>
+  <%= @physician.middlename %>
+</p>
+<p>
+  <b>Last name:</b>
+  <%= @physician.lastname%>
+</p>
 <p>
   <b>Specialty:</b>
   <%= @physician.specialty %>
@@ -10,12 +24,6 @@
   <%= @physician.office_num %>
 </p>
 
-<p>
-  <b>Username:</b>
-  <%= @physician.username %>
-</p>
-
-<% #Should we add password stuff? %>
 
 <%= link_to 'Edit', edit_physician_path(@physician) %> |
 <%= link_to 'Back', physicians_path %>

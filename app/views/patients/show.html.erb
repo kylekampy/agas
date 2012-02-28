@@ -1,4 +1,19 @@
+<% content_for :title, "Patient" %>
+
+
 <p id="notice"><%= notice %></p>
+<p>
+  <b>First name:</b>
+  <%= @patient.firstname%>
+</p>
+<p>
+  <b>Middle name:</b>
+  <%= @patient.middlename%>
+</p>
+<p>
+  <b>Last name:</b>
+  <%= @patient.lastname%>
+</p>
 
 <p>
   <b>Primary phy:</b>

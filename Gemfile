@@ -1,6 +1,7 @@
 source 'http://rubygems.org'
 gem "bcrypt-ruby", :require => "bcrypt"
 gem 'rails', '3.1.3'
+gem 'nested_form', :git => 'git://github.com/ryanb/nested_form.git'
 
 # Bundle edge Rails instead:
 # gem 'rails',     :git => 'git://github.com/rails/rails.git'

@@ -25,6 +25,7 @@ class PhysiciansController < ApplicationController
   # GET /physicians/new.json
   def new
     @physician = Physician.new
+    @physician.build_login
 
     respond_to do |format|
       format.html # new.html.erb

@@ -1,10 +1,13 @@
 class Physician < ActiveRecord::Base
  has_one :login, :as => :owner
- has_many :address, :as => :owner
+ has_many :addresses, :as => :owner
  has_many :phones, :as => :owner
  has_many :emails, :as => :owner
+ validates_presence_of :firstname 
+ validates_presence_of :lastname
+ accepts_nested_attributes_for :login, :reject_if => lambda { |a| a[:content].blank? }, :allow_destroy => true
+ accepts_nested_attributes_for :addresses, :reject_if => lambda { |a| a[:content].blank? }, :allow_destroy => true 
+ accepts_nested_attributes_for :phones, :reject_if => lambda { |a| a[:content].blank? }, :allow_destroy => true 
+ accepts_nested_attributes_for :emails, :reject_if => lambda { |a| a[:content].blank? }, :allow_destroy => true
 
-  def username
-    "TODO - This logic shouldn't even be going through here, since login contains this information. Rails doesn't know how to access login from here. Only the other way around."
-  end
 end

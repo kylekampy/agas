@@ -1,4 +1,4 @@
-<%= form_for(@patient) do |f| %>
+<%= nested_form_for @patient do |f| %>
   <% if @patient.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@patient.errors.count, "error") %> prohibited this patient from being saved:</h2>
@@ -10,6 +10,18 @@
       </ul>
     </div>
   <% end %>
+  <div class="field">
+    <%= f.label :firstname%><br />
+    <%= f.number_field :firstname%>
+  </div>
+  <div class="field">
+    <%= f.label :middlename%><br />
+    <%= f.number_field :middlename%>
+  </div>
+  <div class="field">
+    <%= f.label :lastname%><br />
+    <%= f.number_field :lastname%>
+  </div>
 
   <div class="field">
     <%= f.label :primary_phy_id %><br />
@@ -27,6 +39,15 @@
     <%= f.label :insurance_id %><br />
     <%= f.number_field :insurance_id %>
   </div>
+  <%= f.fields_for :addresses %>
+<p><%= f.link_to_add "Add Address", :addresses%></p>
+
+  <%= f.fields_for :emails  %>
+<p><%= f.link_to_add "Add Email", :emails %></p>
+
+  <%= f.fields_for :phones  %>
+<p><%= f.link_to_add "Add a Phone", :phones %></p>
+
   <div class="actions">
     <%= f.submit %>
   </div>

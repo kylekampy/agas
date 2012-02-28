@@ -5,3 +5,39 @@
  *= require_self
  *= require_tree . 
 */
+body{
+ margin-left:30%;
+
+}
+.header{
+  height:60px;
+  background-color:black;
+  top:0;
+  left:0;
+  width:100%;
+  position:absolute;
+
+}
+.body{
+ padding-top:60px;
+
+}
+.header h1 {
+   color:white;
+   float:left;
+}
+.agas {
+ padding-left:15px;
+
+}
+.title {
+ padding-left:35%;
+}
+.header p {
+  padding-top:5px;
+  float:right;
+  color:white;
+  padding-right:10px;
+}
+#header{
+}

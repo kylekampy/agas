@@ -3,12 +3,26 @@
 <head>
   <title>Agas</title>
   <%= stylesheet_link_tag    "application" %>
-  <%= javascript_include_tag "application" %>
+  <%= javascript_include_tag "application"  %>
   <%= csrf_meta_tags %>
 </head>
 <body>
-
+<div id="header" class="header">
+<h1 class="agas">AGAS</h1><h1 class="title"><%=h yield(:title) %></h1>
+<p>
+<%=
+   if @current_user.nil? 
+     link_to("Login", {:controller => "sessions", :action => "new" }) 
+   else
+     @current_user.username
+     link_to("log out", {:controller => "sessions", :action => "destroy" })
+   end
+%>
+</p>
+ </div>
+<div id="body" class="body">
 <%= yield %>
+</div>
 
 </body>
 </html>

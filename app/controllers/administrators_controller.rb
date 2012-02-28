@@ -25,6 +25,7 @@ class AdministratorsController < ApplicationController
   # GET /administrators/new.json
   def new
     @administrator = Administrator.new
+    @administrator.build_login
 
     respond_to do |format|
       format.html # new.html.erb
