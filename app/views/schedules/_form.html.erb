@@ -10,7 +10,12 @@
       </ul>
     </div>
   <% end %>
-
+  
+  <div class="field">
+    Start Date:
+    <%= text_field_tag 'datepicker1' %>
+  </div>
+  <p><b>Note:</b> <i>If you select an end time <u>before</u> the begin time, the system assumes the end time is on the following day.</i></p>
   <div class="field">
     <%= f.label :start_time %><br />
     <%= f.datetime_select :start_time %>
@@ -20,6 +25,7 @@
     <%= f.datetime_select :end_time %>
   </div>
   <div class="field">
+    <% #TODO: Pull this out of the session for the currently logged in phys. If this isn't a physician viewing, they shouldn't have access to the page in the first place. %>
     <%= f.label :phy_id %><br />
     <%= f.number_field :phy_id %>
   </div>
