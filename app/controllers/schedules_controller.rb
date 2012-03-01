@@ -6,7 +6,6 @@ class SchedulesController < ApplicationController
 
     respond_to do |format|
       format.html # index.html.erb
-      format.json { render :json => @schedules }
     end
   end
 
@@ -17,8 +16,7 @@ class SchedulesController < ApplicationController
 
     respond_to do |format|
       format.html # show.html.erb
-      format.json { render :json => @schedule }
-    end
+     end
   end
 
   # GET /schedules/new

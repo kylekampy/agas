@@ -7,6 +7,7 @@ class AppointmentsController < ApplicationController
     respond_to do |format|
       format.html # index.html.erb
       format.json { render :json => @appointments }
+      format.xml { render :xml => @appointments }
     end
   end
 
@@ -18,6 +19,7 @@ class AppointmentsController < ApplicationController
     respond_to do |format|
       format.html # show.html.erb
       format.json { render :json => @appointment }
+      format.xml { render :xml => @appointment }
     end
   end
 

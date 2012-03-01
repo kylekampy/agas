@@ -20,6 +20,7 @@ end
 
 gem 'jquery-rails'
 
+#Used for some xsd validation
 gem 'nokogiri'
 
 # To use ActiveModel has_secure_password
