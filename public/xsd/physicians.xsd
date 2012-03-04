@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <xs:element name="physicians">
+        <xs:complexType>
+            <xs:sequence>
+              <xs:element name="physician" minOccurs="0" maxOccurs="unbounded">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element name="id" type="xs:integer"/>
+                    <xs:element name="firstname" type="xs:string"/>
+                    <xs:element name="middlename" type="xs:string"/>
+                    <xs:element name="lastname" type="xs:string"/>
+                    <xs:element name="specialty" type="xs:string"/>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:schema>

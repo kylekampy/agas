@@ -1,6 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<physician xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-  <id>1</id>
-  <specialty>Whocares</specialty>
-  <office_num>13</office_num>
+<physician>
+  <specialty>not nothing</specialty>
+  <created-at type="datetime">2012-03-04T03:03:33Z</created-at>
+  <updated-at type="datetime">2012-03-04T03:03:33Z</updated-at>
+  <middlename>J</middlename>
+  <id type="integer">4</id>
+  <office-num type="integer">1</office-num>
+  <lastname>Larson</lastname>
+  <firstname>Amanda</firstname>
 </physician>

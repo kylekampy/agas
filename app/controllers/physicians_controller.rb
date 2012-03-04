@@ -7,7 +7,7 @@ class PhysiciansController < ApplicationController
     respond_to do |format|
       format.html # index.html.erb
       format.json { render :json => @physicians }
-      format.xml { render :xml => @physicians }
+      format.xml #index.xml.builder
     end
   end
 
@@ -19,7 +19,7 @@ class PhysiciansController < ApplicationController
     respond_to do |format|
       format.html # show.html.erb
       format.json { render :json => @physician }
-      format.xml { render :xml => @physician }
+      format.xml #show.xml.builder
     end
   end
 
