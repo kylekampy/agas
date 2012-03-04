@@ -3,4 +3,13 @@
 # You can use CoffeeScript in this file: http://jashkenas.github.com/coffee-script/
 
 $ ->
-  $('#datepicker1').datepicker();
+  $('#schedule_datetimepicker_start').datetimepicker({
+        ampm: true,
+        stepMinute: 15
+  });
+
+$ ->
+  $('#schedule_datetimepicker_end').datetimepicker({
+        ampm: true,
+        stepMinute: 15
+  });

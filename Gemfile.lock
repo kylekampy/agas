@@ -35,8 +35,6 @@ GEM
       activesupport (= 3.1.3)
     activesupport (3.1.3)
       multi_json (~> 1.0)
-    api (0.0.1)
-      httparty
     arel (2.2.1)
     bcrypt-ruby (2.1.4)
     builder (3.0.0)
@@ -51,9 +49,6 @@ GEM
     execjs (1.3.0)
       multi_json (~> 1.0)
     hike (1.2.1)
-    httparty (0.8.1)
-      multi_json
-      multi_xml
     i18n (0.6.0)
     jquery-rails (1.0.19)
       railties (~> 3.0)
@@ -65,7 +60,6 @@ GEM
       treetop (~> 1.4.8)
     mime-types (1.17.2)
     multi_json (1.0.4)
-    multi_xml (0.4.1)
     nokogiri (1.5.0)
     polyglot (0.3.3)
     rack (1.3.6)
@@ -120,7 +114,6 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  api
   bcrypt-ruby
   coffee-rails (~> 3.1.1)
   jquery-rails
