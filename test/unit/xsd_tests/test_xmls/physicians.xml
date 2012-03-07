@@ -1,23 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<physicians type="array">
+<physicians>
   <physician>
-    <specialty>everything</specialty>
-    <created-at type="datetime">2012-03-04T03:03:08Z</created-at>
-    <updated-at type="datetime">2012-03-04T03:03:08Z</updated-at>
-    <middlename>J</middlename>
-    <id type="integer">3</id>
-    <office-num type="integer">1</office-num>
-    <lastname>Kamperschroer</lastname>
+    <id>1</id>
     <firstname>Kyle</firstname>
+    <middlename>J</middlename>
+    <lastname>Kampy</lastname>
+    <specialty>Everything</specialty>
+    <office_num>12</office_num>
   </physician>
   <physician>
-    <specialty>not nothing</specialty>
-    <created-at type="datetime">2012-03-04T03:03:33Z</created-at>
-    <updated-at type="datetime">2012-03-04T03:03:33Z</updated-at>
-    <middlename>J</middlename>
-    <id type="integer">4</id>
-    <office-num type="integer">1</office-num>
-    <lastname>Larson</lastname>
+    <id>2</id>
     <firstname>Amanda</firstname>
+    <middlename>J</middlename>
+    <lastname>Larson</lastname>
+    <specialty>Everything Too</specialty>
+    <office_num>12</office_num>
   </physician>
 </physicians>

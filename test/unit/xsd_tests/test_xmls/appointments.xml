@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<appointments>
+<appointments xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <appointment>
-    <id type="integer">1</id>
-    <start_time type="dateTime">2012-03-01 23:58:00 UTC</start_time>
-    <end_time type="dateTime">2012-03-01 23:58:00 UTC</end_time>
-    <physician_id type="integer">1</physician_id>
-    <patient_id type="integer">1</patient_id>
+    <id>1</id>
+    <start_time>2012-03-01 23:58:00 UTC</start_time>
+    <end_time>2012-03-01 23:58:00 UTC</end_time>
+    <physician_id>1</physician_id>
+    <patient_id>1</patient_id>
   </appointment>
   <appointment>
-    <id type="integer">2</id>
-    <start_time type="dateTime">2012-03-01 23:58:00 UTC</start_time>
-    <end_time type="dateTime">2012-03-01 23:58:00 UTC</end_time>
-    <physician_id type="integer">1</physician_id>
-    <patient_id type="integer">1</patient_id>
+    <id>2</id>
+    <start_time>2012-03-01 23:58:00 UTC</start_time>
+    <end_time>2012-03-01 23:58:00 UTC</end_time>
+    <physician_id>1</physician_id>
+    <patient_id>1</patient_id>
   </appointment>
 </appointments>

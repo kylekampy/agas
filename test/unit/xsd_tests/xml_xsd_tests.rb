@@ -8,7 +8,7 @@ class XMLXSDTests < ActiveSupport::TestCase
   xmls.sort!
   xsds.sort!
   arrays_equal = false
-  DEBUG = true
+  DEBUG = false
 
   #First, assert there is an xsd for each xml.
   puts "about to do first test" if DEBUG
@@ -42,14 +42,20 @@ class XMLXSDTests < ActiveSupport::TestCase
   
     puts "At the second section with arrays_equal = #{arrays_equal}" if DEBUG
     if(arrays_equal) #Then lets run some more tests!
-      (0..xmls.length).each do |i|
+      (0..xmls.length-1).each do |i|
         puts "about to run test for #{xml_basenames[i]}" if DEBUG
+        puts "reading in #{xmls[i]}" if DEBUG
         doc = Nokogiri::XML(File.read(xmls[i]))
+        puts "reading in #{xsds[i]}" if DEBUG
         xsd = Nokogiri::XML::Schema(File.read(xsds[i]))          
         
-        xsd.validate(doc).each do |error|
+        errors = xsd.validate(doc)
+        errors.each do |error|
           puts error.message
           assert false #since we have errors, we obviously didn't pass.
+        end
+        if(errors == []) #No errors!
+          assert true #nice work!
         end
       end
     end

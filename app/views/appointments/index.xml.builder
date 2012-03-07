@@ -1,12 +1,12 @@
 xml.instruct!
-xml.appointments do
+xml.appointments({"xmlns:xsi" => "http://www.w3.org/2001/XMLSchema-instance"}) do
   @appointments.each do |appointment|
     xml.appointment do
-      xml.id appointment.id, {:type => "integer"}
-      xml.start_time appointment.start_time, {:type => "dateTime"}
-      xml.end_time appointment.end_time, {:type => "dateTime"}
-      xml.physician_id appointment.phy_id, {:type => "integer"}
-      xml.patient_id appointment.pat_id, {:type => "integer"}
+      xml.id appointment.id
+      xml.start_time appointment.start_time
+      xml.end_time appointment.end_time
+      xml.physician_id appointment.phy_id
+      xml.patient_id appointment.pat_id
      end
   end
 end

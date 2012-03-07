@@ -1,10 +1,8 @@
 xml.instruct!
-  xml.appointment do
-    xml.id @appointment.id, {"xs:type" => "integer"}
-    xml.start_time @appointment.start_time, {:type => "dateTime"}
-    xml.end_time @appointment.end_time, {:type => "dateTime"}
-    xml.physician_id @appointment.phy_id, {:type => "integer"}
-    xml.patient_id @appointment.pat_id, {:type => "integer"}
+  xml.appointment({"xmlns:xsi" => "http://www.w3.org/2001/XMLSchema-instance"}) do
+    xml.id @appointment.id
+    xml.start_time @appointment.start_time
+    xml.end_time @appointment.end_time
+    xml.physician_id @appointment.phy_id
+    xml.patient_id @appointment.pat_id
   end
-
-
