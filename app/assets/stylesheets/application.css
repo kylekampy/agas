@@ -9,6 +9,16 @@ body{
  margin-left:30%;
 
 }
+tr {
+ border: solid black;
+}
+.nav{
+
+}
+.nav a:link{
+  text-decoration:none;
+}
+ 
 .header{
   height:60px;
   background-color:black;
