@@ -35,6 +35,16 @@
   <%= @patient.insurance_id %>
 </p>
 
+  <% @patient.addresses.each do |address|  %>
+    <%= render :partial =>"addresses/show", :locals => {:f => address} %>
+  <% end %>
+  <% @patient.phones.each do  |phone| %>
+    <%= render :partial => "phones/show", :locals => {:f => phone}%>
+  <% end %>
+
+  <% @patient.emails.each do |email|%>
+    <%= render :partial => "emails/show", :locals => {:f => email}%>
+  <% end %>
 
 <%= link_to 'Edit', edit_patient_path(@patient) %> |
 <%= link_to 'Back', patients_path %>

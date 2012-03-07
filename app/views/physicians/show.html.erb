@@ -24,6 +24,16 @@
   <%= @physician.office_num %>
 </p>
 
+  <% @physician.addresses.each do |address|  %>
+    <%= render :partial =>"addresses/show", :locals => {:f => address} %>
+  <% end %>
+  <% @physician.phones.each do  |phone| %>
+    <%= render :partial => "phones/show", :locals => {:f => phone}%>
+  <% end %>
+
+  <% @physician.emails.each do |email|%>
+    <%= render :partial => "emails/show", :locals => {:f => email}%>
+  <% end %>
 
 <%= link_to 'Edit', edit_physician_path(@physician) %> |
 <%= link_to 'Back', physicians_path %>

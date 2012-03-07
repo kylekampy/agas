@@ -7,6 +7,7 @@ class PhysiciansController < ApplicationController
     respond_to do |format|
       format.html # index.html.erb
       format.json { render :json => @physicians }
+      format.xml { render :xml => @physicians }
     end
   end
 
@@ -15,10 +16,6 @@ class PhysiciansController < ApplicationController
   def show
     @physician = Physician.find(params[:id])
 
-    respond_to do |format|
-      format.html # show.html.erb
-      format.json { render :json => @physician }
-    end
   end
 
   # GET /physicians/new
@@ -26,11 +23,6 @@ class PhysiciansController < ApplicationController
   def new
     @physician = Physician.new
     @physician.build_login
-
-    respond_to do |format|
-      format.html # new.html.erb
-      format.json { render :json => @physician }
-    end
   end
 
   # GET /physicians/1/edit
@@ -45,11 +37,10 @@ class PhysiciansController < ApplicationController
 
     respond_to do |format|
       if @physician.save
-        format.html { redirect_to @physician, :notice => 'Physician was successfully created.' }
-        format.json { render :json => @physician, :status => :created, :location => @physician }
+        flash[:notice] = "Successfully created physician"
+        redirect_to @physician
       else
-        format.html { render :action => "new" }
-        format.json { render :json => @physician.errors, :status => :unprocessable_entity }
+        render :action => 'new'
       end
     end
   end
