@@ -1,14 +1,19 @@
-Agas::Application.routes.draw do
+Agas::Application.routes.draw do  
+  get "bill/new"
+
   get "log_out" => "sessions#destroy", :as => "log_out"
   get "log_in" => "sessions#new", :as => "log_in"
   get "sign_up" => "users#new", :as => "sign_up"
   root :to => "physicians#new"
+  match "/physicians/:id/edit_password", :to =>"physicians#edit_password", :as => "edit_password_physician"
+  match "/administrators/:id/edit_password", :to =>"administrators#edit_password", :as => "edit_password_admin"
 
   resources :logins
   resources :sessions
 
   get "sessions/new"
   get "logins/new"
+  get "bills/new"
 
   resources :physicians
 
@@ -21,6 +26,8 @@ Agas::Application.routes.draw do
   resources :appointments
 
   resources :addresses
+  
+  resources :bills
 
   get "say/hello"
 
