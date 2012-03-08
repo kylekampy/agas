@@ -38,6 +38,10 @@ class AdministratorsController < ApplicationController
     @administrator = Administrator.find(params[:id])
   end
 
+  def edit_password
+    @administrator = Administrator.find(params[:id])
+  end
+
   # POST /administrators
   # POST /administrators.json
   def create

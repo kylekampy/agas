@@ -32,6 +32,11 @@ class PhysiciansController < ApplicationController
   def edit
     @physician = Physician.find(params[:id])
   end
+  
+  def edit_password
+    @physician = Physician.find(params[:id])
+
+  end
 
   # POST /physicians
   # POST /physicians.json
