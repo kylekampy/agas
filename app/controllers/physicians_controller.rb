@@ -17,6 +17,7 @@ class PhysiciansController < ApplicationController
     @physician = Physician.find(params[:id])
 
     respond_to do |format|
+      format.html
       format.xml #show.xml.builder
     end
   end
