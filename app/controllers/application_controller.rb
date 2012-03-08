@@ -2,9 +2,9 @@ class ApplicationController < ActionController::Base
   protect_from_forgery
   helper_method :current_user
 
-  private
 
   def current_user
-    @current_user ||= User.find(session[:user_id]) if session[:user_id]
+     logger.debug "The object is #{session[:login_id]}"
+    @current_user ||= Login.find(session[:login_id]) if session[:login_id]
   end
 end

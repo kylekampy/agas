@@ -11,14 +11,18 @@
 <h1 class="agas">AGAS</h1><h1 class="title"><%=h yield(:title) %></h1>
 <p>
 <%=
-   if @current_user.nil? 
-     link_to("Login", {:controller => "sessions", :action => "new" }) 
+   if current_user.nil? 
+     link_to("Login", log_in_path) 
    else
-     @current_user.username
-     link_to("log out", {:controller => "sessions", :action => "destroy" })
+     link_to("Log out", log_out_path)
    end
 %>
 </p>
+ </div>
+ <div class="nav" style="padding-top:60px;">
+   <%= link_to("Physicians", physicians_path) %> 
+   <%= link_to("Patients", patients_path) %>
+   <%= link_to("Appointments", appointments_path)%>
  </div>
 <div id="body" class="body">
 <%= yield %>

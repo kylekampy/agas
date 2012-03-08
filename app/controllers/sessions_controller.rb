@@ -4,9 +4,11 @@ class SessionsController < ApplicationController
 
   def create
     login = Login.authenticate(params[:username], params[:password])
-    if user
+    if login
       session[:login_id] = login.id
-      redirect_to root_url, :notice => "Logged in!"
+       logger.debug "The login is #{login.id}"
+       logger.debug "Session is #{session[:login_id]}"
+      redirect_to physicians_path, :notice => "Logged in!"
     else
       flash.now.alert = "Invalid username or password"
       render "new"
@@ -15,7 +17,6 @@ class SessionsController < ApplicationController
 
   def destroy
     session[:login_id] = nil
-    redirect_to root_url, :notice => "Logged out!"
+    redirect_to log_in_path, :notice => "Logged out!"
   end
-
 end

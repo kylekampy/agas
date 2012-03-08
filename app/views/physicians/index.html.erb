@@ -1,22 +1,32 @@
-<% content_for :title, "Physician List" %>
+<% content_for :title, "Physicians" %>
 
-<table>
+<table style="border: solid black;empty-cells:hide;">
   <tr>
+    <th>ID</th>
+    <th>Last Name</th>
+    <th>First Name</th>
+    <th>Office Number</th>
     <th>Specialty</th>
-    <th>Office num</th>
-    <th></th>
+    <th>Address</th>
+    <th>Phone #</th>
+    <th>Email</th>
     <th></th>
     <th></th>
   </tr>
 
 <% @physicians.each do |physician| %>
   <tr>
-    <td><%= physician.specialty %></td>
+    <td><%= physician.id %></td>
+    <td><%= physician.lastname %></td>
+    <td><%= physician.firstname%></td>
     <td><%= physician.office_num %></td>
-    <% #password stuff? %>
+    <td><%= physician.specialty %></td>
+    <td><%= %></td>
+    <td><%= %></td>
+    <td><%= %></td>
     <td><%= link_to 'Show', physician %></td>
     <td><%= link_to 'Edit', edit_physician_path(physician) %></td>
-    <td><%= link_to 'Destroy', physician, :confirm => 'Are you sure?', :method => :delete %></td>
+    <td><%= link_to  "&#215;".html_safe, physician, :confirm => 'Are you sure?', :method => :delete %></td>
   </tr>
 <% end %>
 </table>
