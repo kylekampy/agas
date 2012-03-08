@@ -8,7 +8,7 @@ class SessionsController < ApplicationController
       session[:login_id] = login.id
        logger.debug "The login is #{login.id}"
        logger.debug "Session is #{session[:login_id]}"
-      redirect_to physicians_path, :notice => "Logged in!"
+      redirect_to root_path, :notice => "Logged in!"
     else
       flash.now.alert = "Invalid username or password"
       render "new"

@@ -1,10 +1,12 @@
 Agas::Application.routes.draw do  
+  get "home/show"
+
   get "bill/new"
 
   get "log_out" => "sessions#destroy", :as => "log_out"
   get "log_in" => "sessions#new", :as => "log_in"
   get "sign_up" => "users#new", :as => "sign_up"
-  root :to => "physicians#new"
+  root :to => "home#show"
   match "/physicians/:id/edit_password", :to =>"physicians#edit_password", :as => "edit_password_physician"
   match "/administrators/:id/edit_password", :to =>"administrators#edit_password", :as => "edit_password_admin"
 
