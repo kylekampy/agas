@@ -9,9 +9,15 @@ body{
  margin-left:30%;
 
 }
+/* Messes with the datepickers layout
 tr {
  border: solid black;
+}*/
+.index_table{
+    border: solid black;
+    empty-cells: hide;
 }
+
 .nav{
 
 }
