@@ -1,14 +1,12 @@
-<h1>Listing schedules</h1>
+<% content_for :title, "Schedules" %>
 
 <table class="index_table">
   <tr>
     <th>Start time</th>
     <th>End time</th>
-    <th>Phy</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
+    <th>Physician ID</th>
+    <th colspan="3">Operations</th>
+  </tr>  </tr>
 
 <% @schedules.each do |schedule| %>
   <tr>
