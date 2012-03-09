@@ -17,7 +17,7 @@
     <td><%= patient.insurance_id %></td>
     <td><%= link_to 'Show', patient %></td>
     <td><%= link_to 'Edit', edit_patient_path(patient) %></td>
-    <td><%= link_to 'Destroy', patient, :confirm => 'Are you sure?', :method => :delete %></td>
+    <td><%= link_to "&#215;".html_safe, patient, :confirm => 'Are you sure?', :method => :delete %></td>
   </tr>
 <% end %>
 </table>

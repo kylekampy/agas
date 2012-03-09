@@ -17,7 +17,7 @@
     <td><%= appointment.pat_id %></td>
     <td><%= link_to 'Show', appointment %></td>
     <td><%= link_to 'Edit', edit_appointment_path(appointment) %></td>
-    <td><%= link_to 'Destroy', appointment, :confirm => 'Are you sure?', :method => :delete %></td>
+    <td><%= link_to "&#215".html_safe, appointment, :confirm => 'Are you sure?', :method => :delete %></td>
   </tr>
 <% end %>
 </table>
