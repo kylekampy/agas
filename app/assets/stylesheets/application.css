@@ -62,11 +62,13 @@ tr {
 
 }
 .header h1 {
-   color:white;
+   color: white;
    float:left;
 }
 .agas {
  padding-left:15px;
+ cursor: pointer;
+ text-shadow: 2px 2px 2px #999;
 
 }
 .title {
