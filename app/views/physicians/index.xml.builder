@@ -1,5 +1,5 @@
 xml.instruct!
-xml.physicians do
+xml.physicians({"xmlns:xsi" => "http://www.w3.org/2001/XMLSchema-instance"}) do
   @physicians.each do |physician|
     xml.physician do
       xml.id physician.id
