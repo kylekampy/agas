@@ -6,7 +6,8 @@ gem 'nested_form', :git => 'git://github.com/ryanb/nested_form.git'
 # Bundle edge Rails instead:
 # gem 'rails',     :git => 'git://github.com/rails/rails.git'
 
-gem 'sqlite3'
+#gem 'sqlite3'
+gem 'pg'
 
 gem 'json'
 
