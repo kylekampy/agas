@@ -11,12 +11,21 @@
 <h1 class="agas" onclick="location.href='/'">AGAS</h1><h1 class="title"><%=h yield(:title) %></h1>
 <p>
 <%=
-   if current_user.nil? 
-     link_to("Login", log_in_path, {:id => "header_link"}) 
-   else
-      link_to("Log out", log_out_path, {:id => "header_link"})
-   end
+    unless current_login.nil?
+      
+      if current_login_type == "Physician"
+        link_to("#{current_user.firstname} #{current_user.lastname}", current_user, {:id => "header_link"})
+      elsif current_login_type == "Administrator"
+        link_to("#{current_login.username}", current_user, {:id => "header_link"})
+      end
+    end
 %>
+
+<%= if current_login.nil?  
+     link_to("Login", log_in_path, {:id => "header_link"})
+    else
+      link_to("Log out", log_out_path, {:id => "header_link"})
+end%>
 </p>
  </div>
  <div class="nav" style="padding-top:60px;">

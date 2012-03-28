@@ -1,4 +1,7 @@
 class AddressesController < ApplicationController
+  skip_before_filter :authorize_administrator, :all
+  skip_before_filter :authorize_physician, :all
+
   # GET /addresses
   # GET /addresses.json
   def index

@@ -1,4 +1,7 @@
 class PatientsController < ApplicationController
+  skip_before_filter :authorize_administrator, :all
+  skip_before_filter :authorize_physician, :all
+
   # GET /patients
   # GET /patients.json
   def index
