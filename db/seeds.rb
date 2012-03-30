@@ -22,8 +22,8 @@ def admin(name, login)
 end
 
 #For creating physicians
-def phy(f_nm, m_nm, l_nm, specialty, office_num, login)
-  return Physician.create([{ :firstname => f_nm, :middlename => m_nm, :lastname => l_nm, :specialty => specialty, :office_num => office_num, :login => login}])[0]
+def phy(f_nm, m_nm, l_nm, specialty, office_num, phone, login)
+  return Physician.create([{ :firstname => f_nm, :middlename => m_nm, :lastname => l_nm, :specialty => specialty, :office_num => office_num, :phone => phone, :login => login}])[0]
 end
 
 def pat(f_nm, m_nm, l_nm, dob)
@@ -45,10 +45,10 @@ admin("Superuser", l("admin", "password123", true))
 admin("Root", l("root", "password123", true))
 
 #Create some physician accounts
-phy("Kyle", "A", "Kamperschroer", "Nose", 62, l("kyle", "password"))
-phy("Ben", "A", "Metzger", "Eyes", 23, l("ben", "password"))
-phy("Peter", "A", "Bougie", "Ears", 24, l("peter", "password"))
-phy("Zhicheng", "A", "Fu", "Mouth", 61, l("fu", "password"))
+phy("Kyle", "A", "Kamperschroer", "Nose", 62, "123-123-1231", l("kyle", "password"))
+phy("Ben", "A", "Metzger", "Eyes", 23, "321-321-3213", l("ben", "password"))
+phy("Peter", "A", "Bougie", "Ears", 24, "444-444-4444", l("peter", "password"))
+phy("Zhicheng", "A", "Fu", "Mouth", 61, "555-555-5555", l("fu", "password"))
 
 #Create some patients
 pat("John", "B", "Doe", "23-3-1987")

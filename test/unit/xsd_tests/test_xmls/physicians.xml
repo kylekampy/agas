@@ -1,19 +1,39 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<physicians>
+<physicians xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <physician>
     <id>1</id>
     <firstname>Kyle</firstname>
-    <middlename>J</middlename>
-    <lastname>Kampy</lastname>
-    <specialty>Everything</specialty>
-    <office_num>12</office_num>
+    <middlename>A</middlename>
+    <lastname>Kamperschroer</lastname>
+    <specialty>Nose</specialty>
+    <office_num>62</office_num>
+    <phone_num>123-123-1231</phone_num>
   </physician>
   <physician>
     <id>2</id>
-    <firstname>Amanda</firstname>
-    <middlename>J</middlename>
-    <lastname>Larson</lastname>
-    <specialty>Everything Too</specialty>
-    <office_num>12</office_num>
+    <firstname>Ben</firstname>
+    <middlename>A</middlename>
+    <lastname>Metzger</lastname>
+    <specialty>Eyes</specialty>
+    <office_num>23</office_num>
+    <phone_num>321-321-3213</phone_num>
+  </physician>
+  <physician>
+    <id>3</id>
+    <firstname>Peter</firstname>
+    <middlename>A</middlename>
+    <lastname>Bougie</lastname>
+    <specialty>Ears</specialty>
+    <office_num>24</office_num>
+    <phone_num>444-444-4444</phone_num>
+  </physician>
+  <physician>
+    <id>4</id>
+    <firstname>Zhicheng</firstname>
+    <middlename>A</middlename>
+    <lastname>Fu</lastname>
+    <specialty>Mouth</specialty>
+    <office_num>61</office_num>
+    <phone_num>555-555-5555</phone_num>
   </physician>
 </physicians>

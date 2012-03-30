@@ -2,8 +2,9 @@
 <physician xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <id>1</id>
   <firstname>Kyle</firstname>
-  <middlename>J</middlename>
-  <lastname>Kampy</lastname>
-  <specialty>Everything</specialty>
-  <office_num>12</office_num>
+  <middlename>A</middlename>
+  <lastname>Kamperschroer</lastname>
+  <specialty>Nose</specialty>
+  <office_num>62</office_num>
+  <phone_num>123-123-1231</phone_num>
 </physician>
