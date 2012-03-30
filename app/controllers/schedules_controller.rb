@@ -1,6 +1,5 @@
 class SchedulesController < ApplicationController
-  skip_before_filter :authorize_administrator, :all
-  skip_before_filter :authorize_physician, :all
+  #Todo: add auth for schedules in individual methods
 
   # GET /schedules
   # GET /schedules.json

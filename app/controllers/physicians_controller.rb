@@ -1,7 +1,6 @@
 class PhysiciansController < ApplicationController
-  skip_before_filter :authorize_physician, :only => [:show, :edit,:save]
-  skip_before_filter :authorize_administrator, :all
-  (skip_before_filter :authorize_administrator, :only => [:show, :index]) if valid_key?
+  before_filter :authorize_administrator, :only => [:index, :new, :create, :destroy]
+  #If you aren't an admin, you are a physician. AppControl requires a login to begin with.
 
   # GET /physicians
   # GET /physicians.json
@@ -19,6 +18,7 @@ class PhysiciansController < ApplicationController
   # GET /physicians/1.json
   def show
     @physician = Physician.find(params[:id])
+    #todo: authorize we are the correct physician.
 
     respond_to do |format|
       format.html

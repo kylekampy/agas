@@ -1,23 +1,22 @@
 class ApplicationController < ActionController::Base
-  before_filter :authorize_administrator
-  before_filter :authorize_physician
-  before_filter :authorize
+  before_filter :require_login
   protect_from_forgery
   helper_method :current_login
   helper_method :current_login_type
   helper_method :current_user
-  helper_method :valid_key?
 
   KEYS = []
   KEYS << "bf4e28785ab0560951dd0766f8059c4a" #pharmacy key
   KEYS << "98b84a80080b49716cdf31b29e11dbb4" #emr key
   KEYS << "b4628fe4f5f38e5b293be2024ce95239" #insurance key
 
-  def valid_key?
-    puts "in valid_key?".center(100, "*")
-    puts "params = #{params}"
-    puts "key = #{params[:key]}"
-    return KEYS.include?(params[:key])
+  def valid_xml_request_with_key?
+    key = params[:key]
+    puts "key = #{key}"
+    format = params[:format]
+    puts "format = #{format}"
+    puts "valid key and xml = #{KEYS.include?(key) && format == "xml"}"
+    return KEYS.include?(key) && format == "xml"
   end
   
   def current_login
@@ -37,27 +36,29 @@ class ApplicationController < ActionController::Base
        return Physician.find(current_login.owner_id);
      elsif current_login_type == "Administrator"
        return Administrator.find(current_login.owner_id);
-     else
-       nil
      end 
     end
   end
   protected 
 
   def authorize_administrator
-    if current_login_type == "Administrator"
+    puts "authorize_administrator".center(80, "-=")
+    unless current_login_type == "Administrator" || valid_xml_request_with_key?
       flash[:error] = "You are not authorized to view this area"
       redirect_to log_in_path
     end
   end
   def authorize_physician
-    if current_login_type == "Physician"
+    puts "authorize_physician".center(80, "-=")
+    unless current_login_type == "Physician" || valid_xml_request_with_key?
       flash[:error] = "You are not authorized to view this area"
       redirect_to log_in_path
     end
   end
-  def authorize
-    if session[:login_id].nil?
+  def require_login
+    puts "require login".center(80, "-=")
+    puts "current_login_type = #{current_login_type}"
+    unless current_login_type != nil || valid_xml_request_with_key?
       flash[:error] = "You are not authorized to view this area"
       redirect_to log_in_path
     end

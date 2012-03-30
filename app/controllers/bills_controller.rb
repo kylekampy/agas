@@ -1,4 +1,5 @@
 class BillsController < ApplicationController
+  before_filter :authorize_administrator
 
   def new
   end

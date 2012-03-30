@@ -1,5 +1,5 @@
 class AdministratorsController < ApplicationController
-  skip_before_filter :authorize_administrator, :all
+  before_filter :authorize_administrator
 
   # GET /administrators
   # GET /administrators.json

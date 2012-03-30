@@ -2,7 +2,7 @@
 
 <table>
   <tr>
-    <th>Username</th>
+    <th>Name</th>
     <th></th>
     <th></th>
     <th></th>
@@ -10,7 +10,7 @@
 
 <% @administrators.each do |administrator| %>
   <tr>
-    <td><%= administrator.username %></td>
+    <td><%= administrator.name %></td>
     <% #password stuff? %>
     <td><%= link_to 'Show', administrator %></td>
     <td><%= link_to 'Edit', edit_administrator_path(administrator) %></td>

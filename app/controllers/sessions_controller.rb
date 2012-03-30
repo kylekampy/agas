@@ -1,7 +1,5 @@
 class SessionsController < ApplicationController
-  skip_before_filter :authorize_administrator, :all
-  skip_before_filter :authorize_physician, :all
-  skip_before_filter :authorize, :all
+  skip_before_filter :require_login, :all
 
   def new
   end

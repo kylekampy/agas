@@ -9,12 +9,16 @@
 require 'time'
 
 #For creating logins
-def l(un, pass)
-  return Login.create([{ :username => un, :password => pass, :password_confirmation => pass, :owner_type => "Physician" }])[0]
+def l(un, pass, admin=true)
+  if(!admin)
+    return Login.create([{ :username => un, :password => pass, :password_confirmation => pass, :owner_type => "Physician" }])[0]
+  else #admin
+    return Login.create([{ :username => un, :password => pass, :password_confirmation => pass, :owner_type => "Administrator" }])[0]
+  end
 end
 
-def admin(un, pass)
-  return Login.create([{ :username => un, :password => pass, :password_confirmation => pass, :owner_type => "Administrator" }])[0]
+def admin(name, login)
+  return Administrator.create([{ :name => name, :login => login }])
 end
 
 #For creating physicians
@@ -37,7 +41,8 @@ end
 #---------------- Seed data ----------------#
 
 #Create an admin account
-admin("root", "password123")
+admin("Superuser", l("admin", "password123", true))
+admin("Root", l("root", "password123", true))
 
 #Create some physician accounts
 phy("Kyle", "A", "Kamperschroer", "Nose", 62, l("kyle", "password"))
