@@ -1,5 +1,5 @@
 <% content_for :title, "Patient" %>
-
+<% phys_for_pat = Physician.find_by_id(@patient.primary_phy_id) %>
 
 <p id="notice"><%= notice %></p>
 <p>
@@ -16,8 +16,8 @@
 </p>
 
 <p>
-  <b>Primary phy:</b>
-  <%= @patient.primary_phy_id %>
+  <b>Primary Phyisican:</b>
+  <%= link_to "#{phys_for_pat.lastname}, #{phys_for_pat.firstname}", phys_for_pat %>
 </p>
 
 <p>

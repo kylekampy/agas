@@ -1,3 +1,5 @@
+<% phys_for_sch = Physician.find_by_id(@schedule.phy_id) %>
+
 <p id="notice"><%= notice %></p>
 
 <p>
@@ -11,8 +13,8 @@
 </p>
 
 <p>
-  <b>Phy:</b>
-  <%= @schedule.phy_id %>
+  <b>Phyisican:</b>
+  <%= link_to "#{phys_for_sch.lastname}, #{phys_for_sch.firstname}", phys_for_sch %>
 </p>
 
 

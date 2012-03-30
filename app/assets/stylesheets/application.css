@@ -6,8 +6,8 @@
  *= require_tree . 
 */
 body{
- margin-left:30%;
-
+ margin-left: 30%;
+ /* this needs fixing */
 }
 /* Messes with the datepickers layout
 tr {

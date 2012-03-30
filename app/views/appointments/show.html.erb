@@ -1,4 +1,7 @@
 <% content_for :title, "Appointment" %>
+<% phys_for_apt = Physician.find_by_id(@appointment.phy_id) %>
+<% pat_for_apt = Patient.find_by_id(@appointment.pat_id) %>
+
 <p id="notice"><%= notice %></p>
 
 <p>
@@ -12,13 +15,13 @@
 </p>
 
 <p>
-  <b>Phy:</b>
-  <%= @appointment.phy_id %>
+  <b>Physician:</b>
+  <%= link_to "#{phys_for_apt.lastname}, #{phys_for_apt.firstname}", phys_for_apt %>
 </p>
 
 <p>
-  <b>Pat:</b>
-  <%= @appointment.pat_id %>
+  <b>Patient:</b>
+  <%= link_to "#{pat_for_apt.lastname}, #{pat_for_apt.firstname}", pat_for_apt %>
 </p>
 
 

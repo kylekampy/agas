@@ -2,7 +2,10 @@
 
 <table class="index_table">
   <tr>
-    <th>Primary phy</th>
+    <th>First Name</th>
+    <th>Middle Name</th>
+    <th>Last Name</th>
+    <th>Primary Physician</th>
     <th>Date of birth</th>
     <th>Pharmacy ID</th>
     <th>Insurance ID</th>
@@ -10,8 +13,12 @@
   </tr>
 
 <% @patients.each do |patient| %>
+<% phys_for_pat = Physician.find_by_id(patient.primary_phy_id) %>
   <tr>
-    <td><%= patient.primary_phy_id %></td>
+    <td><%= patient.firstname %></td>
+    <td><%= patient.middlename %></td>
+    <td><%= patient.lastname %></td>
+    <td><%= link_to "#{phys_for_pat.lastname}, #{phys_for_pat.firstname}", phys_for_pat %></td>
     <td><%= patient.date_of_birth %></td>
     <td><%= patient.pharmacy_id %></td>
     <td><%= patient.insurance_id %></td>
