@@ -12,10 +12,7 @@ class ApplicationController < ActionController::Base
 
   def valid_xml_request_with_key?
     key = params[:key]
-    puts "key = #{key}"
     format = params[:format]
-    puts "format = #{format}"
-    puts "valid key and xml = #{KEYS.include?(key) && format == "xml"}"
     return KEYS.include?(key) && format == "xml"
   end
   
@@ -42,22 +39,18 @@ class ApplicationController < ActionController::Base
   protected 
 
   def authorize_administrator
-    puts "authorize_administrator".center(80, "-=")
     unless current_login_type == "Administrator" || valid_xml_request_with_key?
       flash[:error] = "You are not authorized to view this area"
       redirect_to log_in_path
     end
   end
   def authorize_physician
-    puts "authorize_physician".center(80, "-=")
     unless current_login_type == "Physician" || valid_xml_request_with_key?
       flash[:error] = "You are not authorized to view this area"
       redirect_to log_in_path
     end
   end
   def require_login
-    puts "require login".center(80, "-=")
-    puts "current_login_type = #{current_login_type}"
     unless current_login_type != nil || valid_xml_request_with_key?
       flash[:error] = "You are not authorized to view this area"
       redirect_to log_in_path
