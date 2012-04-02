@@ -22,8 +22,7 @@ end
 
 gem 'jquery-rails'
 
-#Used for some xsd validation
-#gem 'nokogiri'
+
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
@@ -40,4 +39,7 @@ gem 'jquery-rails'
 # For automatic UML Class and ER diagram generation
 group :development do
       gem "railroady"
+      
+      #Used for some xsd validation
+      gem 'nokogiri'
 end

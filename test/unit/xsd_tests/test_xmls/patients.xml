@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<patients xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <patient>
+    <id>1</id>
+    <firstname>John</firstname>
+    <middlename>B</middlename>
+    <lastname>Doe</lastname>
+    <date_of_birth>1987-03-23</date_of_birth>
+    <primary_phy_id>1</primary_phy_id>
+    <pharmacy_id>1</pharmacy_id>
+    <insurance_id>1</insurance_id>
+  </patient>
+  <patient>
+    <id>2</id>
+    <firstname>Steve</firstname>
+    <middlename>B</middlename>
+    <lastname>Miller</lastname>
+    <date_of_birth>1967-04-12</date_of_birth>
+    <primary_phy_id>3</primary_phy_id>
+    <pharmacy_id>1</pharmacy_id>
+    <insurance_id>1</insurance_id>
+  </patient>
+  <patient>
+    <id>3</id>
+    <firstname>Phil</firstname>
+    <middlename>B</middlename>
+    <lastname>Fons</lastname>
+    <date_of_birth>1994-05-30</date_of_birth>
+    <primary_phy_id>2</primary_phy_id>
+    <pharmacy_id>1</pharmacy_id>
+    <insurance_id>1</insurance_id>
+  </patient>
+</patients>

@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema">
+  <element name="patient">
+    <complexType>
+      <sequence>
+        <element name="id" type="integer"/>
+        <element name="firstname" type="string"/>
+        <element name="middlename" type="string"/>
+        <element name="lastname" type="string"/>
+        <element name="date_of_birth" type="date"/>
+        <element name="primary_phy_id" type="integer"/>
+        <element name="pharmacy_id" type="integer"/>
+        <element name="insurance_id" type="integer"/>
+      </sequence>
+    </complexType>
+  </element>
+</schema>

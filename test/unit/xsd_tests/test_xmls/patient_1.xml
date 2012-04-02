@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<patient xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <id>1</id>
+  <firstname>John</firstname>
+  <middlename>B</middlename>
+  <lastname>Doe</lastname>
+  <date_of_birth>1987-03-23</date_of_birth>
+  <primary_phy_id>1</primary_phy_id>
+  <pharmacy_id>1</pharmacy_id>
+  <insurance_id>1</insurance_id>
+</patient>

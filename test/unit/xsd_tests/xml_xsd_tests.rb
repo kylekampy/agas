@@ -8,7 +8,7 @@ class XMLXSDTests < ActiveSupport::TestCase
   xmls.sort!
   xsds.sort!
   arrays_equal = false
-  DEBUG = false
+  DEBUG = true
 
   #First, assert there is an xsd for each xml.
   puts "about to do first test" if DEBUG
