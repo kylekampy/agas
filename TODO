@@ -1,0 +1,27 @@
+TODO List
+---------
+
+-Scheduling
+--Only allow appts. to be scheduled during appropriate times for that phys
+
+-Billing
+
+-Only 1 address for each phys and pat
+
+-Secondary physician
+
+-Patient record: Contains all appointments for a patient
+
+-Communication
+--Pull information from EMR
+--Send and receive information from the insurance group
+
+-Health codes
+
+-UI
+--Links dependent on role
+
+-Aesthetics
+--Center tables
+--Center nav bar
+--Flash messages not showing up?
