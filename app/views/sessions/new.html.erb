@@ -1,5 +1,7 @@
 <% content_for :title, "Login" %>
 
+<%= flash[:error] %>
+
 <h1>Log in</h1>
 
 <%= form_tag sessions_path do %>
