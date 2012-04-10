@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Firstname:</b>
+  <%= @medical_staff.firstname %>
+</p>
+
+<p>
+  <b>Middlename:</b>
+  <%= @medical_staff.middlename %>
+</p>
+
+<p>
+  <b>Lastname:</b>
+  <%= @medical_staff.lastname %>
+</p>
+
+<p>
+  <b>Doc:</b>
+  <%= @medical_staff.doc_id %>
+</p>
+
+
+<%= link_to 'Edit', edit_medical_staff_path(@medical_staff) %> |
+<%= link_to 'Back', medical_staffs_path %>

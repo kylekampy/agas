@@ -1,0 +1,29 @@
+<h1>Listing medical_staffs</h1>
+
+<table>
+  <tr>
+    <th>Firstname</th>
+    <th>Middlename</th>
+    <th>Lastname</th>
+    <th>Doc</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @medical_staffs.each do |medical_staff| %>
+  <tr>
+    <td><%= medical_staff.firstname %></td>
+    <td><%= medical_staff.middlename %></td>
+    <td><%= medical_staff.lastname %></td>
+    <td><%= medical_staff.doc_id %></td>
+    <td><%= link_to 'Show', medical_staff %></td>
+    <td><%= link_to 'Edit', edit_medical_staff_path(medical_staff) %></td>
+    <td><%= link_to 'Destroy', medical_staff, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Medical staff', new_medical_staff_path %>

@@ -1,4 +1,6 @@
 Agas::Application.routes.draw do  
+  resources :medical_staffs
+
   get "home/show"
 
   get "bill/new"
