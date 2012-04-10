@@ -3,6 +3,7 @@ class Physician < ActiveRecord::Base
  has_many :addresses, :as => :owner, :dependent => :destroy
  has_many :phones, :as => :owner, :dependent => :destroy
  has_many :emails, :as => :owner, :dependent => :destroy
+ has_many :medical_staffs
  validates_presence_of :firstname 
  validates_presence_of :lastname
 

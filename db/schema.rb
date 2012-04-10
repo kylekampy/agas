@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120330041305) do
+ActiveRecord::Schema.define(:version => 20120410020145) do
 
   create_table "addresses", :force => true do |t|
     t.string   "zip"
@@ -60,6 +60,15 @@ ActiveRecord::Schema.define(:version => 20120330041305) do
     t.string   "password_salt"
     t.string   "owner_type"
     t.integer  "owner_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "medical_staffs", :force => true do |t|
+    t.string   "firstname"
+    t.string   "middlename"
+    t.string   "lastname"
+    t.integer  "doc_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
