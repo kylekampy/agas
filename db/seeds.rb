@@ -38,6 +38,9 @@ def sch(start_time, end_time)
   return Schedule.create([{ :start_time => start_time, :end_time => end_time, :phy_id => Physician.all[rand(Physician.all.length)].id }])[0]
 end
 
+def staff(fn, mn, ln, login)
+  return MedicalStaff.create([{ :firstname => fn, :middlename => mn, :lastname => ln, :doc_id =>  Physician.all[rand(Physician.all.length)].id, :login=> login }])[0]
+end
 #---------------- Seed data ----------------#
 
 #Create an admin account
@@ -49,6 +52,11 @@ phy("Kyle", "A", "Kamperschroer", "Nose", 62, "123-123-1231", l("kyle", "passwor
 phy("Ben", "A", "Metzger", "Eyes", 23, "321-321-3213", l("ben", "password"))
 phy("Peter", "A", "Bougie", "Ears", 24, "444-444-4444", l("peter", "password"))
 phy("Zhicheng", "A", "Fu", "Mouth", 61, "555-555-5555", l("fu", "password"))
+
+#Add some medical staff accounts
+staff("Dante", "D", "Amaral", l("dante", "pasword"))
+staff("Leonel", "D", "Marshall", l("leonel", "password"))
+staff("Medical", "D", "Staffer", l("medical", "password"))
 
 #Create some patients
 pat("John", "B", "Doe", "23-3-1987")

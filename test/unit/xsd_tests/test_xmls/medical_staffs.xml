@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<medical_staffs xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <medical_staff>
+    <id>1</id>
+    <firstname>Dante</firstname>
+    <middlename>D</middlename>
+    <lastname>Amaral</lastname>
+    <doc_id>4</doc_id>
+  </medical_staff>
+  <medical_staff>
+    <id>2</id>
+    <firstname>Leonel</firstname>
+    <middlename>D</middlename>
+    <lastname>Marshall</lastname>
+    <doc_id>3</doc_id>
+  </medical_staff>
+  <medical_staff>
+    <id>3</id>
+    <firstname>Medical</firstname>
+    <middlename>D</middlename>
+    <lastname>Staffer</lastname>
+    <doc_id>4</doc_id>
+  </medical_staff>
+</medical_staffs>

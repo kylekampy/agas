@@ -33,10 +33,6 @@ Agas::Application.routes.draw do
   
   resources :bills
 
-  get "say/hello"
-
-  get "say/goodbye"
-
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

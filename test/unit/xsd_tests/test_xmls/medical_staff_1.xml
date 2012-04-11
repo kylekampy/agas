@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<medical_staff xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <id>1</id>
+  <firstname>Dante</firstname>
+  <middlename>D</middlename>
+  <lastname>Amaral</lastname>
+  <doc_id>4</doc_id>
+</medical_staff>

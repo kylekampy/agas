@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema">
+  <element name="medical_staff">
+    <complexType>
+      <sequence>
+        <element name="id" type="integer"/>
+        <element name="firstname" type="string"/>
+        <element name="middlename" type="string"/>
+        <element name="lastname" type="string"/> 
+        <element name="doc_id" type="integer"/>
+      </sequence>
+    </complexType>
+  </element>
+</schema>
