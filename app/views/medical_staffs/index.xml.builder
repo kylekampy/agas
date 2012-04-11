@@ -7,6 +7,7 @@ xml.medical_staffs({"xmlns:xsi" => "http://www.w3.org/2001/XMLSchema-instance"})
       xml.middlename staff.middlename
       xml.lastname staff.lastname
       xml.doc_id staff.doc_id
+      xml.phone staff.phone
     end
   end
 end

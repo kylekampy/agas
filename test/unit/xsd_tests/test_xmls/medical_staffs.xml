@@ -5,7 +5,8 @@
     <firstname>Dante</firstname>
     <middlename>D</middlename>
     <lastname>Amaral</lastname>
-    <doc_id>4</doc_id>
+    <doc_id>1</doc_id>
+    <phone>222-222-2222</phone>
   </medical_staff>
   <medical_staff>
     <id>2</id>
@@ -13,12 +14,14 @@
     <middlename>D</middlename>
     <lastname>Marshall</lastname>
     <doc_id>3</doc_id>
+    <phone>432-432-4322</phone>
   </medical_staff>
   <medical_staff>
     <id>3</id>
     <firstname>Medical</firstname>
     <middlename>D</middlename>
     <lastname>Staffer</lastname>
-    <doc_id>4</doc_id>
+    <doc_id>3</doc_id>
+    <phone>999-912-4651</phone>
   </medical_staff>
 </medical_staffs>

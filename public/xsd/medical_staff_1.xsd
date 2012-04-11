@@ -8,6 +8,7 @@
         <element name="middlename" type="string"/>
         <element name="lastname" type="string"/> 
         <element name="doc_id" type="integer"/>
+        <element name="phone" type="string"/>
       </sequence>
     </complexType>
   </element>

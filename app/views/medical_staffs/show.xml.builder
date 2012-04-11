@@ -5,4 +5,5 @@ xml.instruct!
     xml.middlename @medical_staff.middlename
     xml.lastname @medical_staff.lastname
     xml.doc_id @medical_staff.doc_id
+    xml.phone @medical_staff.phone
   end

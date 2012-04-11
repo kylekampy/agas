@@ -38,8 +38,8 @@ def sch(start_time, end_time)
   return Schedule.create([{ :start_time => start_time, :end_time => end_time, :phy_id => Physician.all[rand(Physician.all.length)].id }])[0]
 end
 
-def staff(fn, mn, ln, login)
-  return MedicalStaff.create([{ :firstname => fn, :middlename => mn, :lastname => ln, :doc_id =>  Physician.all[rand(Physician.all.length)].id, :login=> login }])[0]
+def staff(fn, mn, ln, phone, login)
+  return MedicalStaff.create([{ :firstname => fn, :middlename => mn, :lastname => ln, :phone => phone, :doc_id =>  Physician.all[rand(Physician.all.length)].id, :login=> login }])[0]
 end
 #---------------- Seed data ----------------#
 
@@ -54,9 +54,9 @@ phy("Peter", "A", "Bougie", "Ears", 24, "444-444-4444", l("peter", "password"))
 phy("Zhicheng", "A", "Fu", "Mouth", 61, "555-555-5555", l("fu", "password"))
 
 #Add some medical staff accounts
-staff("Dante", "D", "Amaral", l("dante", "pasword"))
-staff("Leonel", "D", "Marshall", l("leonel", "password"))
-staff("Medical", "D", "Staffer", l("medical", "password"))
+staff("Dante", "D", "Amaral", "222-222-2222", l("dante", "pasword"))
+staff("Leonel", "D", "Marshall", "432-432-4322", l("leonel", "password"))
+staff("Medical", "D", "Staffer", "999-912-4651", l("medical", "password"))
 
 #Create some patients
 pat("John", "B", "Doe", "23-3-1987")
