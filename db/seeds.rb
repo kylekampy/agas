@@ -22,8 +22,8 @@ def admin(name, login)
 end
 
 #For creating physicians
-def phy(f_nm, m_nm, l_nm, specialty, office_num, phone, login)
-  return Physician.create([{ :firstname => f_nm, :middlename => m_nm, :lastname => l_nm, :specialty => specialty, :office_num => office_num, :phone => phone, :login => login}])[0]
+def phy(f_nm, m_nm, l_nm, specialty, office_num, phones, login)
+  return Physician.create([{ :firstname => f_nm, :middlename => m_nm, :lastname => l_nm, :specialty => specialty, :office_num => office_num, :phones => phones, :login => login}])[0]
 end
 
 def pat(f_nm, m_nm, l_nm, dob)
@@ -38,9 +38,14 @@ def sch(start_time, end_time)
   return Schedule.create([{ :start_time => start_time, :end_time => end_time, :phy_id => Physician.all[rand(Physician.all.length)].id }])[0]
 end
 
-def staff(fn, mn, ln, phone, login)
-  return MedicalStaff.create([{ :firstname => fn, :middlename => mn, :lastname => ln, :phone => phone, :doc_id =>  Physician.all[rand(Physician.all.length)].id, :login=> login }])[0]
+def staff(fn, mn, ln, phones, login)
+  return MedicalStaff.create([{ :firstname => fn, :middlename => mn, :lastname => ln, :phones => phones, :doc_id =>  Physician.all[rand(Physician.all.length)].id, :login=> login }])[0]
 end
+
+def p(type, number, owner_type)
+  return Phone.create([{ :phone_type => type, :phone => number, :owner_type => owner_type }])[0]
+end
+
 #---------------- Seed data ----------------#
 
 #Create an admin account
@@ -48,15 +53,15 @@ admin("Superuser", l("admin", "password123", true))
 admin("Root", l("root", "password123", true))
 
 #Create some physician accounts
-phy("Kyle", "A", "Kamperschroer", "Nose", 62, "123-123-1231", l("kyle", "password"))
-phy("Ben", "A", "Metzger", "Eyes", 23, "321-321-3213", l("ben", "password"))
-phy("Peter", "A", "Bougie", "Ears", 24, "444-444-4444", l("peter", "password"))
-phy("Zhicheng", "A", "Fu", "Mouth", 61, "555-555-5555", l("fu", "password"))
+phy("Kyle", "A", "Kamperschroer", "Nose", 62, [p("Work", "111-111-1111", "Physician"), p("Cell", "132-627-5951", "Physician")], l("kyle", "password"))
+phy("Ben", "A", "Metzger", "Eyes", 23, [p("Work", "222-222-2222", "Physician")], l("ben", "password"))
+phy("Peter", "A", "Bougie", "Ears", 24, [p("Work", "444-444-4444", "Physician")], l("peter", "password"))
+phy("Zhicheng", "A", "Fu", "Mouth", 61, [p("Work", "555-555-5555", "Physician")], l("fu", "password"))
 
 #Add some medical staff accounts
-staff("Dante", "D", "Amaral", "222-222-2222", l("dante", "pasword"))
-staff("Leonel", "D", "Marshall", "432-432-4322", l("leonel", "password"))
-staff("Medical", "D", "Staffer", "999-912-4651", l("medical", "password"))
+staff("Dante", "D", "Amaral", [p("Work", "123-123-1231", "Medical Staff")], l("dante", "pasword"))
+staff("Leonel", "D", "Marshall", [p("Work", "432-432-4322", "Medical Staff")], l("leonel", "password"))
+staff("Medical", "D", "Staffer", [p("Work", "999-912-4651", "Medical Staff"), p("Home", "529-322-1111", "Medical Staff")], l("medical", "password"))
 
 #Create some patients
 pat("John", "B", "Doe", "23-3-1987")

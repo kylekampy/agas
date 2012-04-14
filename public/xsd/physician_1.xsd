@@ -9,7 +9,21 @@
         <element name="lastname" type="string"/> 
         <element name="specialty" type="string"/>
         <element name="office_num" type="integer"/>
-        <element name="phone_num" type="string"/>
+        <element name="phones">
+          <complexType>
+            <sequence>
+              <element name="phone" minOccurs="1" maxOccurs="unbounded">
+                <complexType>
+                  <simpleContent>
+                    <extension base="string">
+                      <attribute name="type" type="string" />
+                    </extension>
+                  </simpleContent>
+                </complexType>
+              </element>
+            </sequence>
+          </complexType>
+        </element>
       </sequence>
     </complexType>
   </element>

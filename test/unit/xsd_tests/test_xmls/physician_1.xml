@@ -6,5 +6,8 @@
   <lastname>Kamperschroer</lastname>
   <specialty>Nose</specialty>
   <office_num>62</office_num>
-  <phone_num>123-123-1231</phone_num>
+  <phones>
+    <phone type="Work">111-111-1111</phone>
+    <phone type="Cell">132-627-5951</phone>
+  </phones>
 </physician>

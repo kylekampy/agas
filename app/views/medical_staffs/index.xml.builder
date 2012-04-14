@@ -7,7 +7,11 @@ xml.medical_staffs({"xmlns:xsi" => "http://www.w3.org/2001/XMLSchema-instance"})
       xml.middlename staff.middlename
       xml.lastname staff.lastname
       xml.doc_id staff.doc_id
-      xml.phone staff.phone
+      xml.phones do
+        staff.phones.each do |phone|
+          xml.phone phone.phone, :type => phone.phone_type
+        end
+      end
     end
   end
 end

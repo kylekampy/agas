@@ -1,9 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <medical_staff xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-  <id>1</id>
-  <firstname>Dante</firstname>
+  <id>3</id>
+  <firstname>Medical</firstname>
   <middlename>D</middlename>
-  <lastname>Amaral</lastname>
+  <lastname>Staffer</lastname>
   <doc_id>1</doc_id>
-  <phone>222-222-2222</phone>
+  <phones>
+    <phone type="Work">999-912-4651</phone>
+    <phone type="Home">529-322-1111</phone>
+  </phones>
 </medical_staff>

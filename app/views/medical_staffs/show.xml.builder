@@ -5,5 +5,9 @@ xml.instruct!
     xml.middlename @medical_staff.middlename
     xml.lastname @medical_staff.lastname
     xml.doc_id @medical_staff.doc_id
-    xml.phone @medical_staff.phone
+    xml.phones do
+      @medical_staff.phones.each do |phone|
+         xml.phone phone.phone, :type => phone.phone_type
+      end
+    end
   end

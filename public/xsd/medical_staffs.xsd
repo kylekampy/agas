@@ -11,7 +11,21 @@
                     <element name="middlename" type="string"/>
                     <element name="lastname" type="string"/>
                     <element name="doc_id" type="integer"/>
-                    <element name="phone" type="string"/>
+                    <element name="phones">
+                      <complexType>
+                        <sequence>
+                          <element name="phone" minOccurs="1" maxOccurs="unbounded">
+                            <complexType>
+                              <simpleContent>
+                                <extension base="string">
+                                  <attribute name="type" type="string" />
+                                </extension>
+                              </simpleContent>
+                            </complexType>
+                          </element>
+                        </sequence>
+                      </complexType>
+                    </element>
                   </sequence>
                 </complexType>
               </element>

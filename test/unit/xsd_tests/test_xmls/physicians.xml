@@ -7,7 +7,10 @@
     <lastname>Kamperschroer</lastname>
     <specialty>Nose</specialty>
     <office_num>62</office_num>
-    <phone_num>123-123-1231</phone_num>
+    <phones>
+      <phone type="Work">111-111-1111</phone>
+      <phone type="Cell">132-627-5951</phone>
+    </phones>
   </physician>
   <physician>
     <id>2</id>
@@ -16,7 +19,9 @@
     <lastname>Metzger</lastname>
     <specialty>Eyes</specialty>
     <office_num>23</office_num>
-    <phone_num>321-321-3213</phone_num>
+    <phones>
+      <phone type="Work">222-222-2222</phone>
+    </phones>
   </physician>
   <physician>
     <id>3</id>
@@ -25,7 +30,9 @@
     <lastname>Bougie</lastname>
     <specialty>Ears</specialty>
     <office_num>24</office_num>
-    <phone_num>444-444-4444</phone_num>
+    <phones>
+      <phone type="Work">444-444-4444</phone>
+    </phones>
   </physician>
   <physician>
     <id>4</id>
@@ -34,6 +41,8 @@
     <lastname>Fu</lastname>
     <specialty>Mouth</specialty>
     <office_num>61</office_num>
-    <phone_num>555-555-5555</phone_num>
+    <phones>
+      <phone type="Work">555-555-5555</phone>
+    </phones>
   </physician>
 </physicians>
