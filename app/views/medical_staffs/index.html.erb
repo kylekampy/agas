@@ -6,7 +6,7 @@
     <th>Middlename</th>
     <th>Lastname</th>
     <th>Physician</th>
-    <th>Phone Number</th>
+    <th>Phone</th>
     <th></th>
     <th></th>
     <th></th>
@@ -18,7 +18,7 @@
     <td><%= medical_staff.middlename %></td>
     <td><%= medical_staff.lastname %></td>
     <td><%= medical_staff.doc_id %></td>
-    <td><%= medical_staff.phone %></td>
+    <td><%=  %></td>
     <td><%= link_to 'Show', medical_staff %></td>
     <td><%= link_to 'Edit', edit_medical_staff_path(medical_staff) %></td>
     <td><%= link_to 'Destroy', medical_staff, :confirm => 'Are you sure?', :method => :delete %></td>

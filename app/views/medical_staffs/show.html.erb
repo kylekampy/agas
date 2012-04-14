@@ -20,10 +20,9 @@
   <%= @medical_staff.doc_id %>
 </p>
 
-<p>
-  <b>Phone:</b>
-  <%= @medical_staff.phone %>
-</p>
+  <% @medical_staff.phones.each do  |phone| %>
+    <%= render :partial => "phones/show", :locals => {:f => phone}%>
+  <% end %>
 
 <%= link_to 'Edit', edit_medical_staff_path(@medical_staff) %> |
 <%= link_to 'Back', medical_staffs_path %>

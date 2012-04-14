@@ -1,4 +1,4 @@
-<%= form_for(@medical_staff) do |f| %>
+<%= nested_form_for(@medical_staff) do |f| %>
   <% if @medical_staff.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@medical_staff.errors.count, "error") %> prohibited this medical_staff from being saved:</h2>
@@ -27,10 +27,12 @@
     <%= f.label :doc_id %><br />
     <%= f.number_field :doc_id %>
   </div>
-  <div class="field">
-    <%= f.label :phone %><br />
-    <%= f.text_field :phone %>
-  </div>
+
+  <%= f.fields_for :phones do |phone|%>
+    <%= render"phone_fields", :f => phone%>
+  <% end %>
+  <p><%= f.link_to_add "Add Phone", :phones%></p>
+
   <div class="actions">
     <%= f.submit %>
   </div>
