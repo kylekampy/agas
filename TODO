@@ -31,3 +31,4 @@ TODO List
 --Center nav bar
 --Flash messages not showing up?
 --Any index or show page with an 'id' (like pat_id), replace with name and link to object.
+--Add some CSS to show pages. They aren't pretty.

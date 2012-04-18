@@ -7,10 +7,7 @@
     <th>First Name</th>
     <th>Office Number</th>
     <th>Specialty</th>
-    <th>Address</th>
-    <th>Phone #</th>
-    <th>Email</th>
-    <th colspan="3">Operations</th>
+    <th colspan="3">Actions</th>
   </tr>  </tr>
 
 <% @physicians.each do |physician| %>
@@ -20,9 +17,6 @@
     <td><%= physician.firstname%></td>
     <td><%= physician.office_num %></td>
     <td><%= physician.specialty %></td>
-    <td><%= %></td>
-    <td><%= %></td>
-    <td><%= %></td>
     <td><%= link_to 'Show', physician %></td>
     <td><%= link_to 'Edit', edit_physician_path(physician) %></td>
     <td><%= link_to  "&#215;".html_safe, physician, :confirm => 'Are you sure?', :method => :delete %></td>

@@ -1,24 +1,21 @@
-<h1>Listing medical_staffs</h1>
+<% content_for :title, "Medical Staffers" %>
 
-<table>
+<table class="index_table">
   <tr>
     <th>Firstname</th>
     <th>Middlename</th>
     <th>Lastname</th>
     <th>Physician</th>
-    <th>Phone</th>
-    <th></th>
-    <th></th>
-    <th></th>
+    <th colspan="3">Actions</th>
   </tr>
 
 <% @medical_staffs.each do |medical_staff| %>
+<% phys_for_staffer = Physician.find_by_id(medical_staff.doc_id) %>
   <tr>
     <td><%= medical_staff.firstname %></td>
     <td><%= medical_staff.middlename %></td>
     <td><%= medical_staff.lastname %></td>
-    <td><%= medical_staff.doc_id %></td>
-    <td><%=  %></td>
+    <td><%= link_to "#{phys_for_staffer.lastname}, #{phys_for_staffer.firstname}", phys_for_staffer %></td>
     <td><%= link_to 'Show', medical_staff %></td>
     <td><%= link_to 'Edit', edit_medical_staff_path(medical_staff) %></td>
     <td><%= link_to 'Destroy', medical_staff, :confirm => 'Are you sure?', :method => :delete %></td>
