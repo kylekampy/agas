@@ -1,4 +1,5 @@
 class SchedulesController < ApplicationController
+  before_filter :authorize_at_least_medical_staff
   #Todo: add auth for schedules in individual methods
 
   # GET /schedules
