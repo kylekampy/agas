@@ -4,6 +4,11 @@ class ApplicationController < ActionController::Base
   helper_method :current_login
   helper_method :current_login_type
   helper_method :current_user
+  helper_method :is_admin
+  helper_method :is_phys
+  helper_method :is_medstaff
+  helper_method :is_at_least_phys
+  helper_method :is_at_least_medstaff
 
   KEYS = []
   KEYS << "bf4e28785ab0560951dd0766f8059c4a" #pharmacy key
@@ -23,6 +28,7 @@ class ApplicationController < ActionController::Base
   
   def current_login_type
     unless session[:login_id].nil?
+      puts "current_login.owner_type = #{current_login.owner_type}"
       current_login.owner_type 
     end
   end
@@ -36,16 +42,50 @@ class ApplicationController < ActionController::Base
      end 
     end
   end
-  protected 
+
+  ###################################
+  # Some shorthand helper methods to
+  # use. is_admin is considered the
+  # top of the totem pole. Then it's
+  # is_phys, followed by the lowly
+  # medstaff.
+  ###################################
+  def is_admin
+    current_login_type == "Administrator"
+  end
+
+  def is_phys
+    current_login_type == "Physician"
+  end
+
+  def is_medstaff
+    current_login_type == "Medical Staff" || current_login_type == "MedicalStaff"
+  end
+
+  def is_at_least_phys
+    is_phys || is_admin
+  end
+
+  def is_at_least_medstaff
+    is_medstaff || is_phys || is_admin
+  end
+
+  protected
 
   def authorize_administrator
-    unless current_login_type == "Administrator" || valid_xml_request_with_key?
+    unless is_admin || valid_xml_request_with_key?
       flash[:error] = "You are not authorized to view this area"
       redirect_to log_in_path
     end
   end
   def authorize_physician
-    unless current_login_type == "Physician" || valid_xml_request_with_key?
+    unless is_physician || valid_xml_request_with_key?
+      flash[:error] = "You are not authorized to view this area"
+      redirect_to log_in_path
+    end
+  end
+  def authorize_medical_staff
+    unless is_medstaff || valid_xml_request_with_key?
       flash[:error] = "You are not authorized to view this area"
       redirect_to log_in_path
     end

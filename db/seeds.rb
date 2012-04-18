@@ -9,12 +9,8 @@
 require 'time'
 
 #For creating logins
-def l(un, pass, admin=true)
-  if(!admin)
-    return Login.create([{ :username => un, :password => pass, :password_confirmation => pass, :owner_type => "Physician" }])[0]
-  else #admin
-    return Login.create([{ :username => un, :password => pass, :password_confirmation => pass, :owner_type => "Administrator" }])[0]
-  end
+def l(un, pass, type)
+  return Login.create([{ :username => un, :password => pass, :password_confirmation => pass, :owner_type => type }])[0]
 end
 
 def admin(name, login)
@@ -49,19 +45,19 @@ end
 #---------------- Seed data ----------------#
 
 #Create an admin account
-admin("Superuser", l("admin", "password123", true))
-admin("Root", l("root", "password123", true))
+admin("Superuser", l("admin", "password123", "Administrator"))
+admin("Root", l("root", "password123", "Administrator"))
 
 #Create some physician accounts
-phy("Kyle", "A", "Kamperschroer", "Nose", 62, [p("Work", "111-111-1111", "Physician"), p("Cell", "132-627-5951", "Physician")], l("kyle", "password"))
-phy("Ben", "A", "Metzger", "Eyes", 23, [p("Work", "222-222-2222", "Physician")], l("ben", "password"))
-phy("Peter", "A", "Bougie", "Ears", 24, [p("Work", "444-444-4444", "Physician")], l("peter", "password"))
-phy("Zhicheng", "A", "Fu", "Mouth", 61, [p("Work", "555-555-5555", "Physician")], l("fu", "password"))
+phy("Kyle", "A", "Kamperschroer", "Nose", 62, [p("Work", "111-111-1111", "Physician"), p("Cell", "132-627-5951", "Physician")], l("kyle", "password", "Physician"))
+phy("Ben", "A", "Metzger", "Eyes", 23, [p("Work", "222-222-2222", "Physician")], l("ben", "password", "Physician"))
+phy("Peter", "A", "Bougie", "Ears", 24, [p("Work", "444-444-4444", "Physician")], l("peter", "password", "Physician"))
+phy("Zhicheng", "A", "Fu", "Mouth", 61, [p("Work", "555-555-5555", "Physician")], l("fu", "password", "Physician"))
 
 #Add some medical staff accounts
-staff("Dante", "D", "Amaral", [p("Work", "123-123-1231", "Medical Staff")], l("dante", "pasword"))
-staff("Leonel", "D", "Marshall", [p("Work", "432-432-4322", "Medical Staff")], l("leonel", "password"))
-staff("Medical", "D", "Staffer", [p("Work", "999-912-4651", "Medical Staff"), p("Home", "529-322-1111", "Medical Staff")], l("medical", "password"))
+staff("Dante", "D", "Amaral", [p("Work", "123-123-1231", "Medical Staff")], l("dante", "password", "Medical Staff"))
+staff("Leonel", "D", "Marshall", [p("Work", "432-432-4322", "Medical Staff")], l("leonel", "password", "Medical Staff"))
+staff("Medical", "D", "Staffer", [p("Work", "999-912-4651", "Medical Staff"), p("Home", "529-322-1111", "Medical Staff")], l("medical", "password", "Medical Staff"))
 
 #Create some patients
 pat("John", "B", "Doe", "23-3-1987")

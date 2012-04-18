@@ -4,13 +4,18 @@ TODO List
 -Scheduling
 --Only allow appts. to be scheduled during appropriate times for that phys
 
+-Emergency Contact
+
+-Physicians per Department (Might need to be demoed?)
+
 -Billing
 
 -Only 1 address for each phys and pat
 
 -Secondary physician
 
--Patient record: Contains all appointments for a patient
+-Patient record: Contains all appointments for a patient (Physicians need access to this as well)
+--Likely in show add a link to render a list of appointments for a patient
 
 -Communication
 --Pull information from EMR
@@ -22,6 +27,7 @@ TODO List
 --Links dependent on role
 
 -Aesthetics
---Center tables
+--Center tables properly
 --Center nav bar
 --Flash messages not showing up?
+--Any index or show page with an 'id' (like pat_id), replace with name and link to object.

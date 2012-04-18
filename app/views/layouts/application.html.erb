@@ -29,11 +29,31 @@ end%>
 </p>
  </div>
  <div class="nav" style="padding-top:60px;">
+   <% if(is_admin) #links for administrators %>
+   
    <%= link_to("Physicians", physicians_path) %> | 
+   <%= link_to("Medical Staffers", medical_staffs_path) %> |
    <%= link_to("Patients", patients_path) %> |
+   <%= link_to("Administrators", administrators_path) %> |
+   <%#TODO: link_to("Health Prices", health_prices_path) %>
    <%= link_to("Appointments", appointments_path)%> |
    <%= link_to("Schedule", schedules_path)%> |
    <%= link_to("Generate Bill", new_bill_path)%>
+
+   <% elsif(is_phys) #links for physicians %>
+   <% ##### Make these all dynamic so only show info for this physician. E.G., appointments only for this physicians patients. %>
+   <%= link_to("Medical Staffers", medical_staffs_path) %> |
+   <%= link_to("Patients", patients_path) %> |
+   <%= link_to("Appointments", appointments_path)%> |
+   <%= link_to("Schedule", schedules_path)%>
+
+   <% elsif(is_medstaff) #links for medical staff %>
+   <% ###### Make these all dependent. So only show patients for this staffers associated physician. %>
+   <%= link_to("Patients", patients_path) %> |
+   <%= link_to("Appointments", appointments_path)%> |
+   <%= link_to("Schedule", schedules_path)%>
+
+   <% end %>
  </div>
 <div id="body" class="body">
 <%= yield %>
