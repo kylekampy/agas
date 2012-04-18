@@ -35,10 +35,12 @@ class ApplicationController < ActionController::Base
   
   def current_user
     if current_login
-     if current_login_type == "Physician"
+     if is_phys
        return Physician.find(current_login.owner_id);
-     elsif current_login_type == "Administrator"
+     elsif is_admin
        return Administrator.find(current_login.owner_id);
+     elsif is_medstaff
+       return MedicalStaff.find(current_login.owner_id);
      end 
     end
   end
@@ -86,6 +88,18 @@ class ApplicationController < ActionController::Base
   end
   def authorize_medical_staff
     unless is_medstaff || valid_xml_request_with_key?
+      flash[:error] = "You are not authorized to view this area"
+      redirect_to log_in_path
+    end
+  end
+  def authorize_at_least_medical_staff
+    unless is_medstaff || is_phys || is_admin || valid_xml_request_with_key?
+      flash[:error] = "You are not authorized to view this area"
+      redirect_to log_in_path
+    end
+  end
+  def authorize_at_least_physician
+    unless is_phys || is_admin || valid_xml_request_with_key?
       flash[:error] = "You are not authorized to view this area"
       redirect_to log_in_path
     end

@@ -12,7 +12,16 @@
     <th colspan="3">Actions</th>
   </tr>
 
-<% @patients.each do |patient| %>
+<% #A little logic to determine what patients to display %>
+<% patients = nil %>
+<% if(is_admin) %>
+   <% patients = @patients %>
+<% elsif(is_phys) %>
+   <% patients = Patient.where(:primary_phy_id => current_user.id) %>
+<% elsif(is_medstaff) %>
+   <% patients = Patient.where(:primary_phy_id => current_user.doc_id) %>
+<% end %>
+<% patients.each do |patient| %>
 <% phys_for_pat = Physician.find_by_id(patient.primary_phy_id) %>
   <tr>
     <td><%= patient.firstname %></td>

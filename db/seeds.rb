@@ -63,6 +63,12 @@ staff("Medical", "D", "Staffer", [p("Work", "999-912-4651", "Medical Staff"), p(
 pat("John", "B", "Doe", "23-3-1987")
 pat("Steve", "B", "Miller", "12-04-1967")
 pat("Phil", "B", "Fons", "30-5-1994")
+pat("John2", "C", "Doe2", "23-3-1988")
+pat("Steve2", "C", "Miller2", "12-04-1968")
+pat("Phil2", "C", "Fons2", "30-5-1995")
+pat("John3", "D", "Doe3", "23-3-1986")
+pat("Steve3", "D", "Miller3", "12-04-1966")
+pat("Phil3", "D", "Fons3", "30-5-1993")
 
 #Create some appointments
 apt(Time.parse("2012/3/12 13:00:00"), Time.parse("2012/3/12 14:45:00"))
