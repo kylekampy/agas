@@ -1,5 +1,5 @@
 class AppointmentsController < ApplicationController
-  before_filter :authorize_administrator
+  before_filter :authorize_at_least_medical_staff
 
   # GET /appointments
   # GET /appointments.json
