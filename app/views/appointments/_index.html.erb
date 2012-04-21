@@ -1,0 +1,39 @@
+<table class="index_table">
+  <tr>
+    <th>Start time</th>
+    <th>End time</th>
+    <th>Physician</th>
+    <th>Patient</th>
+    <th colspan="3">Actions</th>
+  </tr>  </tr>
+
+<% #A little logic to determine which appointments to display %>
+<% appointments = nil %>
+<% if(is_admin) %>
+   <% appointments = apps %>
+<% elsif(is_phys) %>
+  <%if pat_id.nil? %>
+    <% appointments = Appointment.where(:phy_id => current_user.id) %>
+  <% else %>
+    <% appointments = Appointment.where(:phy_id => current_user.id, :pat_id => pat_id) %>
+  <% end %>
+<% elsif(is_medstaff) %>
+   <% appointments = Appointment.where(:phy_id => current_user.doc_id) %>
+<% end %>
+<% appointments.each do |appointment| %>
+<% phys_for_apt = Physician.find_by_id(appointment.phy_id) %>
+<% pat_for_apt = Patient.find_by_id(appointment.pat_id) %>
+
+  <tr>
+    <td><%= appointment.start_time %></td>
+    <td><%= appointment.end_time %></td>
+    <td><%= link_to "#{phys_for_apt.lastname}, #{phys_for_apt.firstname}", phys_for_apt %></td>
+    <td><%= link_to "#{pat_for_apt.lastname}, #{pat_for_apt.firstname}", pat_for_apt %></td>
+    <td><%= link_to 'Show', appointment %></td>
+    <td><%= link_to 'Edit', edit_appointment_path(appointment) %></td>
+    <td><%= link_to "&#215".html_safe, appointment, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />

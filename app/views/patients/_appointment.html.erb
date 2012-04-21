@@ -1,0 +1,12 @@
+<% phys_for_apt = Physician.find_by_id(f.phy_id) %>
+<% pat_for_apt = Patient.find_by_id(f.pat_id) %>
+
+  <tr>
+    <td><%= f.start_time %></td>
+    <td><%= f.end_time %></td>
+    <td><%= link_to "#{phys_for_apt.lastname}, #{phys_for_apt.firstname}", phys_for_apt %></td>
+    <td><%= link_to "#{pat_for_apt.lastname}, #{pat_for_apt.firstname}", pat_for_apt %></td>
+    <td><%= link_to 'Show', f %></td>
+    <td><%= link_to 'Edit', edit_appointment_path(f) %></td>
+    <td><%= link_to "&#215".html_safe, f, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>

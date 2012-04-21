@@ -35,7 +35,7 @@
   <%= @patient.insurance_id %>
 </p>
 
-  <% @patient.addresses.each do |address|  %>
+  <% @patient.addresses do |address|  %>
     <%= render :partial =>"addresses/show", :locals => {:f => address} %>
   <% end %>
   <% @patient.phones.each do  |phone| %>
@@ -45,6 +45,9 @@
   <% @patient.emails.each do |email|%>
     <%= render :partial => "emails/show", :locals => {:f => email}%>
   <% end %>
+  
+
+    <%= render :partial => 'appointments/index', :locals => {:apps => @appointments, :pat_id => @patient.primary_phy_id} %>
 
 <%= link_to 'Edit', edit_patient_path(@patient) %> |
 <%= link_to 'Back', patients_path %>
