@@ -18,7 +18,7 @@ TODO List
 
 -Emergency Contact
 
--Patient record: Contains all appointments for a patient (Physicians need access to this as well)
+DONE -Patient record: Contains all appointments for a patient (Physicians need access to this as well)
 --Likely in show add a link to render a list of appointments for a patient
 
 -Communication
