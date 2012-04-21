@@ -9,10 +9,14 @@ TODO List
 -Physicians per Department (Might need to be demoed?)
 
 -Billing
+--Should probably have a DB of bills for record keeping. Also, status
+   (pending, payed, etc.)
 
 -Only 1 address for each phys and pat
 
 -Secondary physician
+
+-Emergency Contact
 
 -Patient record: Contains all appointments for a patient (Physicians need access to this as well)
 --Likely in show add a link to render a list of appointments for a patient
@@ -23,12 +27,5 @@ TODO List
 
 -Health codes
 
--UI
---Links dependent on role
-
 -Aesthetics
---Center tables properly
---Center nav bar
---Flash messages not showing up?
---Any index or show page with an 'id' (like pat_id), replace with name and link to object.
---Add some CSS to show pages. They aren't pretty.
+--Boxes around nested forms (Phone type and number should be visually grouped)

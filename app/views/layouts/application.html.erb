@@ -1,22 +1,50 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>Agas</title>
-  <%= stylesheet_link_tag    "application" %>
-  <%= javascript_include_tag "application"  %>
-  <%= csrf_meta_tags %>
-</head>
-<body>
-<div id="header" class="header">
-<h1 class="agas" onclick="location.href='/'">AGAS</h1><h1 class="title"><%=h yield(:title) %></h1>
-<p>
-<%=
-    unless current_login.nil?
-      
-      if current_login_type == "Physician"
-        link_to("#{current_user.firstname} #{current_user.lastname}", current_user, {:id => "header_link"})
-      elsif current_login_type == "Administrator"
+  <head>
+    <title>Agas</title>
+    <%= stylesheet_link_tag    "application" %>
+    <%= javascript_include_tag "application"  %>
+    <%= csrf_meta_tags %>
+  </head>
+  <body>
+    <div id="header" class="header">
+      <h1 class="agas" onclick="location.href='/'">AGAS</h1><h1 class="title"><%=h yield(:title) %></h1>
+      <p>
+        <%=
+           unless current_login.nil?
+           
+           if current_login_type == "Physician"
+           link_to("#{current_user.firstname} #{current_user.lastname}", current_user, {:id => "header_link"})
+        elsif current_login_type == "Administrator"
         link_to("#{current_login.username}", current_user, {:id => "header_link"})
+<<<<<<< HEAD
+        end
+        end
+        %>
+        
+        <%= if current_login.nil?  
+            link_to("Login", log_in_path, {:id => "header_link"})
+        else
+        link_to("Log out", log_out_path, {:id => "header_link"})
+        end%>
+      </p>
+    </div>
+    <div class="nav_container">
+      <span class="nav">
+        <%= link_to("Physicians", physicians_path) %> | 
+        <%= link_to("Patients", patients_path) %> |
+        <%= link_to("Appointments", appointments_path)%> |
+        <%= link_to("Schedule", schedules_path)%> |
+        <%= link_to("Generate Bill", new_bill_path)%>
+      </span>
+    </div>
+    <div class="body_container">
+      <span id="body" class="body">
+        <%= yield %>
+      </span>
+    </div>
+  </body>
+=======
       end
     end
 %>
@@ -60,4 +88,5 @@ end%>
 </div>
 
 </body>
+>>>>>>> a3e0f243002bfc9c3e5cad3d44dad1a276807a8c
 </html>
