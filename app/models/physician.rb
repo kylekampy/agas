@@ -1,6 +1,6 @@
 class Physician < ActiveRecord::Base
  has_one :login, :as => :owner
- has_one :addresses, :as => :owner, :dependent => :destroy
+ has_many :addresses, :as => :owner, :dependent => :destroy
  has_many :phones, :as => :owner, :dependent => :destroy
  has_many :emails, :as => :owner, :dependent => :destroy
  has_many :medical_staffs
