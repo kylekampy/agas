@@ -24,8 +24,9 @@
   </div>
 
   <div class="field">
-    <%= f.label :primary_phy_id %><br />
-    <%= f.number_field :primary_phy_id %>
+    <%= f.label "Primary Physician" %><br />
+    <%= f.select("primary_phy_id", Physician.all.collect {|p| [ "#{p.lastname}, #{p.firstname}", p.id ] }, {:include_blank => 'None'})%>
+
   </div>
   <div class="field">
     <%= f.label :date_of_birth %><br />

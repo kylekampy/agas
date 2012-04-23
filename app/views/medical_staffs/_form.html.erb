@@ -24,8 +24,8 @@
     <%= f.text_field :lastname %>
   </div>
   <div class="field">
-    <%= f.label :doc_id %><br />
-    <%= f.number_field :doc_id %>
+    <%= f.label "Physician" %><br />
+    <%= f.select("doc_id", Physician.all.collect {|p| [ "#{p.lastname}, #{p.firstname}", p.id ] }, {:include_blank => 'None'})%>
   </div>
 
   <%= f.fields_for :phones do |phone|%>
