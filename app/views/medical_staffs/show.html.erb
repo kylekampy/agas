@@ -1,23 +1,16 @@
 <p id="notice"><%= notice %></p>
+<% content_for :title, "Medical Staff" %>
 
 <p>
-  <b>Firstname:</b>
-  <%= @medical_staff.firstname %>
+  <h2>
+  <%= "#{@medical_staff.firstname} #{@medical_staff.middlename} #{@medical_staff.lastname}"%>
+  </h2>
 </p>
 
 <p>
-  <b>Middlename:</b>
-  <%= @medical_staff.middlename %>
-</p>
-
-<p>
-  <b>Lastname:</b>
-  <%= @medical_staff.lastname %>
-</p>
-
-<p>
-  <b>Doc:</b>
-  <%= @medical_staff.doc_id %>
+  <b>Physician:</b>
+  <% physician = Physician.find(@medical_staff.doc_id )%>
+  <%= link_to "#{physician.firstname} #{physician.middlename} #{physician.lastname}", physician%>
 </p>
 
   <% @medical_staff.phones.each do  |phone| %>

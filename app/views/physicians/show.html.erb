@@ -3,16 +3,9 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <b>First name:</b>
-  <%= @physician.firstname%>
-</p>
-<p>
-  <b>Middle name:</b>
-  <%= @physician.middlename %>
-</p>
-<p>
-  <b>Last name:</b>
-  <%= @physician.lastname%>
+  <h2>
+  <%= "#{@physician.firstname} #{@physician.middlename} #{@physician.lastname}"%>
+  </h2>
 </p>
 <p>
   <b>Specialty:</b>
