@@ -26,7 +26,11 @@
   <div class="field">
     <%= f.label "Primary Physician" %><br />
     <%= f.select("primary_phy_id", Physician.all.collect {|p| [ "#{p.lastname}, #{p.firstname}", p.id ] }, {:include_blank => 'None'})%>
-
+  </div>
+  
+  <div class="field">
+    <%= f.label "Secondary Physician" %><br />
+    <%= f.select("second_physician_id", Physician.all.collect {|p| [ "#{p.lastname}, #{p.firstname}", p.id ] }, {:include_blank => 'None'})%>
   </div>
   <div class="field">
     <%= f.label :date_of_birth %><br />
