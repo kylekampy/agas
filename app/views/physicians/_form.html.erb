@@ -35,7 +35,7 @@
 	<%= render :partial => "logins/login_fields",:locals => { :f => login } %> 
    <% end %>
 
-  <%= f.fields_for :addresses  do |address| %>
+  <%= f.fields_for :address  do |address| %>
      <%= render "address_fields", :f => address %>
   <% end %>
 <p><%= f.link_to_add "Add Address", :addresses%></p>

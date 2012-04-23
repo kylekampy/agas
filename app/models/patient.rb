@@ -1,4 +1,5 @@
 class Patient < ActiveRecord::Base
+  has_one :emergancy_contact
   has_many :addresses, :as => :owner
   has_many :phones, :as => :owner
   has_many :emails, :as => :owner
@@ -8,4 +9,6 @@ class Patient < ActiveRecord::Base
   accepts_nested_attributes_for :addresses, :allow_destroy => true
   accepts_nested_attributes_for :phones, :allow_destroy => true
   accepts_nested_attributes_for :emails, :allow_destroy => true
+  accepts_nested_attributes_for :emergancy_contact
+  attr_accessible :emergancy_contact_attributes # the format is the child_class followed by the "_attributes"
 end

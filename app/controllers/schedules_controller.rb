@@ -1,11 +1,14 @@
 class SchedulesController < ApplicationController
   before_filter :authorize_at_least_medical_staff
+      helper_method :sort_column, :sort_direction
+
   #Todo: add auth for schedules in individual methods
 
   # GET /schedules
   # GET /schedules.json
   def index
-    @schedules = Schedule.all
+
+    @schedules = Schedule.order(sort_column + " " + sort_direction)
 
     respond_to do |format|
       format.html # index.html.erb
@@ -80,5 +83,15 @@ class SchedulesController < ApplicationController
       format.html { redirect_to schedules_url }
       format.json { head :ok }
     end
+  end
+  
+  private
+  
+  def sort_column
+    Schedule.column_names.include?(params[:sort]) ? params[:sort] : "start_time"
+  end
+  
+  def sort_direction
+    %w[asc desc].include?(params[:direction]) ? params[:direction] : "asc"
   end
 end

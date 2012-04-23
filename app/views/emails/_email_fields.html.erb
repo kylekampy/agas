@@ -1,6 +1,6 @@
 <div class="field">
     <%= f.label :email_type%><br />
-    <%= f.text_field :email_type%>
+    <%= f.select :email_type, options_for_select(["Select One", "Work", "Home", "Other"],:disabled => ["Select One"])%>
   </div>
   <div class="field">
     <%= f.label :email%><br />

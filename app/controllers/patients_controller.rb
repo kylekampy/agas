@@ -1,11 +1,11 @@
 class PatientsController < ApplicationController
   before_filter :authorize_at_least_medical_staff
+  helper_method :sort_column, :sort_direction
 
   # GET /patients
   # GET /patients.json
   def index
-    @patients = Patient.all
-
+    @patients = Patient.order(sort_column + " " + sort_direction)
     respond_to do |format|
       format.html # index.html.erb
       format.json { render :json => @patients }
@@ -30,7 +30,7 @@ class PatientsController < ApplicationController
   # GET /patients/new.json
   def new
     @patient = Patient.new
-
+    @patient.build_emergancy_contact
     respond_to do |format|
       format.html # new.html.erb
       format.json { render :json => @patient }
@@ -84,5 +84,15 @@ class PatientsController < ApplicationController
       format.html { redirect_to patients_url }
       format.json { head :ok }
     end
+  end
+  
+      private
+  
+  def sort_column
+    Patient.column_names.include?(params[:sort]) ? params[:sort] : "lastname"
+  end
+  
+  def sort_direction
+    %w[asc desc].include?(params[:direction]) ? params[:direction] : "asc"
   end
 end

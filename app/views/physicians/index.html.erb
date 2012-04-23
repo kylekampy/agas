@@ -2,12 +2,12 @@
 
 <table class="index_table">
   <tr>
-    <th>ID</th>
-    <th>Last Name</th>
-    <th>First Name</th>
-    <th>Office Number</th>
-    <th>Specialty</th>
-    <th colspan="3">Actions</th>
+    <th><%= sortable "id" %></th>
+    <th><%= sortable "lastname", "Last Name" %></th>
+    <th><%= sortable "firstname", "First Name"%></th>
+    <th><%= sortable "office_num","Office Number"%></th>
+    <th><%= sortable "specialty", "Specialty"%></th>
+    <th colspan="3"></th>
   </tr>  </tr>
 
 <% @physicians.each do |physician| %>

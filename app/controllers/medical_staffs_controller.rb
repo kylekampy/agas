@@ -1,8 +1,10 @@
 class MedicalStaffsController < ApplicationController
   # GET /medical_staffs
   # GET /medical_staffs.json
+      helper_method :sort_column, :sort_direction
+
   def index
-    @medical_staffs = MedicalStaff.all
+    @medical_staffs = MedicalStaff.order(sort_column + " " + sort_direction)
 
     respond_to do |format|
       format.html # index.html.erb
@@ -81,5 +83,15 @@ class MedicalStaffsController < ApplicationController
       format.html { redirect_to medical_staffs_url }
       format.json { head :ok }
     end
+  end
+  
+      private
+  
+  def sort_column
+    MedicalStaff.column_names.include?(params[:sort]) ? params[:sort] : "lastname"
+  end
+  
+  def sort_direction
+    %w[asc desc].include?(params[:direction]) ? params[:direction] : "asc"
   end
 end

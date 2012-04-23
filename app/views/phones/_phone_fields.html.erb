@@ -1,6 +1,7 @@
 <div class="field">
     <%= f.label :phone_type%><br />
-    <%= f.text_field :phone_type%>
+    <%= f.select :phone_type, options_for_select(["Select One", "Cell", "Work", "Home", "Other"],:disabled => ["Select One"])%>
+
   </div>
   <div class="field">
     <%= f.label :phone%><br />

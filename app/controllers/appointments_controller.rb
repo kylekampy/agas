@@ -1,10 +1,12 @@
 class AppointmentsController < ApplicationController
   before_filter :authorize_at_least_medical_staff
+      helper_method :sort_column, :sort_direction
+
 
   # GET /appointments
   # GET /appointments.json
   def index
-    @appointments = Appointment.all
+    @appointments = Appointment.order(sort_column + " " + sort_direction)
 
     respond_to do |format|
       format.html # index.html.erb
@@ -83,5 +85,15 @@ class AppointmentsController < ApplicationController
       format.html { redirect_to appointments_url }
       format.json { head :ok }
     end
+  end
+  
+    private
+  
+  def sort_column
+    Schedule.column_names.include?(params[:sort]) ? params[:sort] : "start_time"
+  end
+  
+  def sort_direction
+    %w[asc desc].include?(params[:direction]) ? params[:direction] : "asc"
   end
 end
