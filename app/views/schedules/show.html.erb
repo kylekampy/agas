@@ -4,12 +4,12 @@
 
 <p>
   <b>Start time:</b>
-  <%= @schedule.start_time %>
+  <%= @schedule.start_time.strftime("%m/%d/%Y %I:%M %p") %>
 </p>
 
 <p>
   <b>End time:</b>
-  <%= @schedule.end_time %>
+  <%= @schedule.end_time.strftime("%m/%d/%Y %I:%M %p") %>
 </p>
 
 <p>

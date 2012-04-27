@@ -20,8 +20,8 @@
 <% schedules.each do |schedule| %>
 <% phys_for_sch = Physician.find_by_id(schedule.phy_id) %>
   <tr>
-    <td><%= schedule.start_time %></td>
-    <td><%= schedule.end_time %></td>
+    <td><%= schedule.start_time.strftime("%m/%d/%Y %I:%M %p") %></td>
+    <td><%= schedule.end_time.strftime("%m/%d/%Y %I:%M %p") %></td>
     <td><%= link_to "#{phys_for_sch.lastname}, #{phys_for_sch.firstname}", phys_for_sch %></td>
     <td><%= link_to 'Show', schedule %></td>
     <td><%= link_to 'Edit', edit_schedule_path(schedule) %></td>

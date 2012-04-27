@@ -25,8 +25,8 @@
 <% pat_for_apt = Patient.find_by_id(appointment.pat_id) %>
 
   <tr>
-    <td><%= appointment.start_time %></td>
-    <td><%= appointment.end_time %></td>
+    <td><%= appointment.start_time.strftime("%m/%d/%Y %I:%M %p") %></td>
+    <td><%= appointment.end_time.strftime("%m/%d/%Y %I:%M %p") %></td>
     <td><%= link_to "#{phys_for_apt.lastname}, #{phys_for_apt.firstname}", phys_for_apt %></td>
     <td><%= link_to "#{pat_for_apt.lastname}, #{pat_for_apt.firstname}", pat_for_apt %></td>
     <td><%= link_to 'Show', appointment %></td>

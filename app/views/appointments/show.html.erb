@@ -6,12 +6,12 @@
 
 <p>
   <b>Start time:</b>
-  <%= @appointment.start_time %>
+  <%= @appointment.start_time.strftime("%m/%d/%Y %I:%M %p") %>
 </p>
 
 <p>
   <b>End time:</b>
-  <%= @appointment.end_time %>
+  <%= @appointment.end_time.strftime("%m/%d/%Y %I:%M %p") %>
 </p>
 
 <p>
