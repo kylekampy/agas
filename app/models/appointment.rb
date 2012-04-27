@@ -4,14 +4,14 @@ class Appointment < ActiveRecord::Base
 
   validate :is_valid_apt_time
 
-  def is_valid_apt_time
+  def self.is_valid_apt_time
     if(!is_available?(self.phy_id, self.start_time, self.end_time))
       self.errors[:base] << "This physician does not have that time available for an appointment."
     end
   end
 
 #-- What follows is everything for determining time coordination --#
-  def available_times(phy_id)
+  def self.available_times(phy_id)
     avail_times = []
     unavail_times = []
     schedules = Schedule.where(:phy_id => phy_id)
@@ -32,7 +32,16 @@ class Appointment < ActiveRecord::Base
     return avail_times
   end
 
-  def is_available?(phy_id, start_time, end_time)
+  def self.available_future_times(phy_id)
+    times = available_times(phy_id)
+    times.each do |time|
+      if(time.start_time < Time.now)
+        times.delete(time)
+      end
+    end
+  end
+
+  def self.is_available?(phy_id, start_time, end_time)
     avail_times = available_times(phy_id)
     puts "avail_times = #{avail_times}"
     block = TimeBlock.new(start_time, end_time)
@@ -43,9 +52,7 @@ class Appointment < ActiveRecord::Base
     end
   end
 
-private
-
-  def remove_time_block(time_blocks, block_to_remove)
+  def self.remove_time_block(time_blocks, block_to_remove)
     if(block_within_times?(time_blocks, block_to_remove))
       #Go ahead and remove it
       block_to_break = get_containing_block(time_blocks, block_to_remove)
@@ -73,7 +80,7 @@ private
     time_blocks.sort
   end
 
-  def block_within_times?(time_blocks, block_to_check)
+  def self.block_within_times?(time_blocks, block_to_check)
     containing_block = get_containing_block(time_blocks, block_to_check)
     if(containing_block)
       true
@@ -82,7 +89,7 @@ private
     end
   end
 
-  def get_containing_block(time_blocks, block_to_get)
+  def self.get_containing_block(time_blocks, block_to_get)
     time_blocks.each do |cur_block|
       puts "cur_block.start_time = #{cur_block.start_time}"
       if(cur_block.contains_block?(block_to_get))

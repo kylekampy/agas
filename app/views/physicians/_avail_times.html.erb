@@ -1,0 +1,16 @@
+<% avail_times = Appointment.available_future_times(@physician.id) %>
+<table class="index_table">
+  <tr>
+    <th><%= sortable "Start Time" %></th>
+    <th><%= sortable "End Time" %></th>
+  </tr>
+
+  <% avail_times.each do |cur_time_block| %>
+  <tr>
+    <td><%= cur_time_block.start_time.strftime("%m/%d/%Y %I:%M %p") %></td>
+    <td><%= cur_time_block.end_time.strftime("%m/%d/%Y %I:%M %p") %></td>
+  <tr>
+  <% end %>
+
+</table>
+

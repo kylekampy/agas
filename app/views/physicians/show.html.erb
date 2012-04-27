@@ -18,7 +18,7 @@
 </p>
 
   <% @physician.addresses.each do |address|  %>
-    <%= render :partial =>"addresses/show", :locals => {:f => address} %>
+    <%= render :partial => "addresses/show", :locals => {:f => address} %>
   <% end %>
   <% @physician.phones.each do  |phone| %>
     <%= render :partial => "phones/show", :locals => {:f => phone}%>
@@ -27,6 +27,11 @@
   <% @physician.emails.each do |email|%>
     <%= render :partial => "emails/show", :locals => {:f => email}%>
   <% end %>
+
+<p>
+  <b>Available Times:</b>
+  <%= render "avail_times" %>
+</p>
 
 <%= link_to 'Edit', edit_physician_path(@physician) %> |
 <%= link_to 'Back', physicians_path %>
