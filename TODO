@@ -1,9 +1,6 @@
 TODO List
 ---------
 
--Scheduling
---Only allow appts. to be scheduled during appropriate times for that phys
-
 -Emergency Contact
 
 -Physicians per Department (Might need to be demoed?)
@@ -14,11 +11,6 @@ TODO List
 
 -Only 1 address for each phys and pat
 
-Done -Secondary physician
-
-DONE -Patient record: Contains all appointments for a patient (Physicians need access to this as well)
---Likely in show add a link to render a list of appointments for a patient
-
 -Communication
 --Pull information from EMR
 --Send and receive information from the insurance group
@@ -27,4 +19,7 @@ DONE -Patient record: Contains all appointments for a patient (Physicians need a
 
 -Aesthetics
 --Boxes around nested forms (Phone type and number should be visually grouped)
-Done - Phone type and number are visually grouped
+
+-Seeds.rb issue - Times don't match when parsed. Must be a time zone issue?
+
+-Move this TODO list to actual issues on Github so they can be assigned and worked on by us.

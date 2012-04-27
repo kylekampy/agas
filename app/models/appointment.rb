@@ -116,7 +116,6 @@ class Appointment < ActiveRecord::Base
     
     #Method to check if our time block contains block_of_time
     def contains_block?(block_of_time)
-      puts "self inspection = #{self.inspect}"
       if(self.start_time <= block_of_time.start_time &&
          self.end_time >= block_of_time.end_time)
         true
