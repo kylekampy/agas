@@ -4,8 +4,8 @@ class Appointment < ActiveRecord::Base
 
   validate :is_valid_apt_time
 
-  def self.is_valid_apt_time
-    if(!is_available?(self.phy_id, self.start_time, self.end_time))
+  def is_valid_apt_time
+    if(!is_available?(self.start_time, self.end_time))
       self.errors[:base] << "This physician does not have that time available for an appointment."
     end
   end
@@ -39,6 +39,10 @@ class Appointment < ActiveRecord::Base
         times.delete(time)
       end
     end
+  end
+
+  def is_available?(start_time, end_time)
+    return Appointment.is_available?(self.phy_id, start_time, end_time)
   end
 
   def self.is_available?(phy_id, start_time, end_time)
