@@ -1,6 +1,7 @@
 class SchedulesController < ApplicationController
   before_filter :authorize_at_least_medical_staff
-      helper_method :sort_column, :sort_direction
+  helper_method :sort_column, :sort_direction
+  helper_method :available_times
 
   #Todo: add auth for schedules in individual methods
 

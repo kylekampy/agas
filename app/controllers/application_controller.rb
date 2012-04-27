@@ -9,6 +9,8 @@ class ApplicationController < ActionController::Base
   helper_method :is_medstaff
   helper_method :is_at_least_phys
   helper_method :is_at_least_medstaff
+  helper_method :available_times
+  helper_method :is_available?
 
   KEYS = []
   KEYS << "bf4e28785ab0560951dd0766f8059c4a" #pharmacy key
@@ -110,5 +112,4 @@ class ApplicationController < ActionController::Base
       redirect_to log_in_path
     end
   end
-
 end
