@@ -151,7 +151,7 @@ pat(60100,"Cammile", "LaCaille", "Female", Time.parse("11/6/1949"), add("3409 Tw
 
 #Create some schedules
 puts "Creating schedules..."
-sch(Time.parse("2012/5/12 08:00:00"), Time.parse("2012/5/12 16:00:00"))
+sch(Time.parse("2012/5/12 08:00:00 GMT-5"), Time.parse("2012/5/12 16:00:00"))
 sch(Time.parse("2012/5/13 08:00:00"), Time.parse("2012/5/13 16:00:00"))
 sch(Time.parse("2012/5/14 08:00:00"), Time.parse("2012/5/14 16:00:00"))
 sch(Time.parse("2012/5/15 08:00:00"), Time.parse("2012/5/15 16:00:00"))
