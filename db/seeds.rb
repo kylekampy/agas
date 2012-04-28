@@ -151,21 +151,21 @@ pat(60100,"Cammile", "LaCaille", "Female", Time.parse("11/6/1949"), add("3409 Tw
 
 #Create some schedules
 puts "Creating schedules..."
-sch(Time.parse("2012/5/12 08:00:00 GMT-5"), Time.parse("2012/5/12 16:00:00"))
-sch(Time.parse("2012/5/13 08:00:00"), Time.parse("2012/5/13 16:00:00"))
-sch(Time.parse("2012/5/14 08:00:00"), Time.parse("2012/5/14 16:00:00"))
-sch(Time.parse("2012/5/15 08:00:00"), Time.parse("2012/5/15 16:00:00"))
-sch(Time.parse("2012/5/16 08:00:00"), Time.parse("2012/5/16 16:00:00"))
-sch(Time.parse("2012/5/17 08:00:00"), Time.parse("2012/5/17 16:00:00"))
-sch(Time.parse("2012/5/18 08:00:00"), Time.parse("2012/5/18 16:00:00"))
+sch(Time.parse("2012/5/12 08:00"), Time.parse("2012/5/12 16:00"))
+sch(Time.parse("2012/5/13 08:00"), Time.parse("2012/5/13 16:00"))
+sch(Time.parse("2012/5/14 08:00"), Time.parse("2012/5/14 16:00"))
+sch(Time.parse("2012/5/15 08:00"), Time.parse("2012/5/15 16:00"))
+sch(Time.parse("2012/5/16 08:00"), Time.parse("2012/5/16 16:00"))
+sch(Time.parse("2012/5/17 08:00"), Time.parse("2012/5/17 16:00"))
+sch(Time.parse("2012/5/18 08:00"), Time.parse("2012/5/18 16:00"))
 
 #Create some appointments
 puts "Creating appointments..."
-apt(Time.parse("2012/5/12 13:00:00"), Time.parse("2012/5/12 14:45:00"))
-apt(Time.parse("2012/5/13 13:00:00"), Time.parse("2012/5/13 14:45:00"))
-apt(Time.parse("2012/5/14 13:00:00"), Time.parse("2012/5/14 14:45:00"))
-apt(Time.parse("2012/5/15 13:00:00"), Time.parse("2012/5/15 14:45:00"))
-apt(Time.parse("2012/5/16 13:00:00"), Time.parse("2012/5/16 14:45:00"))
-apt(Time.parse("2012/5/17 13:00:00"), Time.parse("2012/5/17 14:45:00"))
-apt(Time.parse("2012/5/18 13:00:00"), Time.parse("2012/5/18 14:45:00"))
-apt(Time.parse("2012/5/19 13:00:00"), Time.parse("2012/5/19 14:45:00"))
+apt(Time.parse("2012/5/12 13:00"), Time.parse("2012/5/12 14:45"))
+apt(Time.parse("2012/5/13 13:00"), Time.parse("2012/5/13 14:45"))
+apt(Time.parse("2012/5/14 13:00"), Time.parse("2012/5/14 14:45"))
+apt(Time.parse("2012/5/15 13:00"), Time.parse("2012/5/15 14:45"))
+apt(Time.parse("2012/5/16 13:00"), Time.parse("2012/5/16 14:45"))
+apt(Time.parse("2012/5/17 13:00"), Time.parse("2012/5/17 14:45"))
+apt(Time.parse("2012/5/18 13:00"), Time.parse("2012/5/18 14:45"))
+apt(Time.parse("2012/5/19 13:00"), Time.parse("2012/5/19 14:45"))

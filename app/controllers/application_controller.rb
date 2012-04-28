@@ -17,6 +17,8 @@ class ApplicationController < ActionController::Base
   KEYS << "98b84a80080b49716cdf31b29e11dbb4" #emr key
   KEYS << "b4628fe4f5f38e5b293be2024ce95239" #insurance key
 
+  Time.zone = "Central Time (US & Canada)" #Weridly required. Makes appts and scheds happy.
+
   def valid_xml_request_with_key?
     key = params[:key]
     format = params[:format]
