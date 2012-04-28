@@ -1,0 +1,4 @@
+<%= form_tag products_path, :method => :get do %>
+  <%= search_field_tag :keywords, params[:keywords], :placeholder => t(:search) %>
+  <%= submit_tag t(:search), :name => nil %>
+<% end %>

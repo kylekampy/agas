@@ -22,7 +22,8 @@
   <div class="field">
     <% #TODO: Pull this out of the session for the currently logged in phys. If this isn't a physician viewing, they shouldn't have access to the page in the first place. %>
     <%= f.label :phy_id, "Physician" %><br />
-    <%= f.number_field :phy_id %>
+    <%= f.select("phy_id", Physician.all.collect {|p| [ "#{p.lastname}, #{p.firstname}", p.id ] }, {:include_blank => 'None'})%>
+
   </div>
   <div class="actions">
     <%= f.submit %>
