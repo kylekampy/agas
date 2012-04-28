@@ -32,7 +32,7 @@ def phy(id, f_nm, l_nm, office_num, phones, emails, specialty, login)
   return p
 end
 
-def pat(f_nm, m_nm, l_nm, dob)
+def pat(id, f_nm, l_nm, gender, dob)
   return Patient.create([{ :firstname => f_nm, :middlename => m_nm, :lastname => l_nm, :primary_phy_id => Physician.all[rand(Physician.all.length-1)].id, :date_of_birth => dob, :pharmacy_id => 1, :insurance_id => 1, :second_physician_id => nil }])[0]
 end
 

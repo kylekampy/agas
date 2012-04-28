@@ -47,7 +47,6 @@ class Appointment < ActiveRecord::Base
 
   def self.is_available?(phy_id, start_time, end_time)
     avail_times = available_times(phy_id)
-    puts "avail_times = #{avail_times}"
     block = TimeBlock.new(start_time, end_time)
     if(block_within_times?(avail_times, block))
       true
@@ -95,7 +94,6 @@ class Appointment < ActiveRecord::Base
 
   def self.get_containing_block(time_blocks, block_to_get)
     time_blocks.each do |cur_block|
-      puts "cur_block.start_time = #{cur_block.start_time}"
       if(cur_block.contains_block?(block_to_get))
         return cur_block
       end
