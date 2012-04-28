@@ -32,8 +32,23 @@ def phy(id, f_nm, l_nm, office_num, phones, emails, specialty, login)
   return p
 end
 
-def pat(f_nm, m_nm, l_nm, dob)
-  return Patient.create([{ :firstname => f_nm, :middlename => m_nm, :lastname => l_nm, :primary_phy_id => Physician.all[rand(Physician.all.length-1)].id, :date_of_birth => dob, :pharmacy_id => 1, :insurance_id => 1, :second_physician_id => nil }])[0]
+def pat(id, f_nm, l_nm, gender, dob, address, phone, email, emergency_contact, primary_phy_id)
+  p = Patient.new
+  p.id = id
+  p.firstname = f_nm
+  p.lastname = l_nm
+  p.gender = gender
+  p.date_of_birth = dob
+  p.addresses = [address]
+  p.phones = [phone]
+  p.emails = [email]
+  p.emergency_contact = emergency_contact
+  p.primary_phy_id = primary_phy_id
+  p.pharmacy_id = 1
+  p.insurance_id = 1
+  p.second_physician_id = nil
+  p.save!
+  return p
 end
 
 def apt(start_time, end_time)
@@ -65,12 +80,18 @@ def p(number, owner_type)
   return Phone.create([{ :phone_type => "Work", :phone => number, :owner_type => owner_type }])[0]
 end
 
-def add(zip, street, state, owner_type)
-  return Address.create([{ :zip => zip, :street => street, :country => "US", :owner_type => owner_type }])[0]
+def add(street, city, state, zip, owner_type)
+  return Address.create([{ :zip => zip, :street => street, :country => "US", :city => city, :owner_type => owner_type }])[0]
 end
 
+#Email
 def em(email, owner_type)
   return Email.create([{ :email_type => "Primary", :email => email, :owner_type => owner_type }])[0]
+end
+
+#Emergency Contact
+def emc(name, address, phone)
+  return EmergencyContact.create([{ :name => name, :address => address, :phone => phone }])[0]
 end
 
 #---------------- Seed data ----------------#
@@ -112,15 +133,21 @@ staff(7245,"Dai", "Peng", [p("202-717-4025", "Medical Staff")], [em("pengdai@cha
 
 #Create some patients
 puts "Creating patients..."
-pat("John", "B", "Doe", "23-3-1987")
-pat("Steve", "B", "Miller", "12-04-1967")
-pat("Phil", "B", "Fons", "30-5-1994")
-pat("John2", "C", "Doe2", "23-3-1988")
-pat("Steve2", "C", "Miller2", "12-04-1968")
-pat("Phil2", "C", "Fons2", "30-5-1995")
-pat("John3", "D", "Doe3", "23-3-1986")
-pat("Steve3", "D", "Miller3", "12-04-1966")
-pat("Phil3", "D", "Fons3", "30-5-1993")
+
+
+pat(10198,"Sabine", "Zweig", "Female", Time.parse("7/5/1976"), add("4590 New York Ave.", "Fort Worth","WA","47895", "Patient"), p("202-985-6384", "Patient"), em("sabinez@telcost.com", "Patient"), emc("Bill Zweig", add("4590 New York Ave." , "Fortworth","WA", "47895", "Emergency Contact"), p("202-985-2546", "Emergency Contact")), 5252)
+pat(10200,"Ralph", "Himmel", "Male", Time.parse("6/13/1938"), add("4099 Leroy Lane", "Watertown", "WA", "48675", "Patient"), p("202-882-8297", "Patient"), em("ralphh@fakemail.usa", "Patient"), emc("Amelia Himmel", add("4099 Leroy Lane", "Watertown", "WA", "48675", "Emergency Contact"), p("202-882-2146", "Emergency Contact")), 1204)
+pat(50377,"Ralf","Abend","Male", Time.parse("8/5/1945"), add("4001 Drainer Ave.", "Bothell", "WA", "48858", "Patient"), p("202-629-0936", "Patient"), em("abendr@fakemail.usa", "Patient"), emc("Ramon Abend", add("4001 Drainer Avenue", "Bothell", "WA", "48858", "Emergency Contact"), p("202-387-4456", "Emergency Contact")), 1204)
+pat(10404,"Torsten", "Kaufmann", "Male", Time.parse("9/20/1966"), add("503 Florence Street", "Mineola", "WA", "42571", "Patient"), p("202-497-1203", "Patient"), em("kaufmannt@telcost.com", "Patient"), emc("Mary Kaufmann", add("503 Florence Street", "Mineola", "WA", "42571", "Emergency Contact"), p("202-651-6654", "Emergency Contact")), 2002)
+pat(20148, "Kevin", "Schmidt", "Male", Time.parse("1/3/1988"), add("3411 Victoria Street", "Bothell", "WA", "48858", "Patient"), p("202-236-5037", "Patient"), em("kevins@telcost.com", "Patient"), emc("Ashley Schmidt", add("3411 Victoria Street", "Bothell", "WA", "48858", "Emergency Contact"), p("202-236-7894", "Emergency Contact")), 5252)
+pat(10600, "Edgardo", "Castiglione", "Male", Time.parse("10/6/1967"), add("609 Feathers Hooves Dr", "Garden City", "WA", "48536", "Patient"), p("202-704-3003", "Patient"), em("castiglionee@fakemail.usa", "Patient"), emc("Christie Castiglione", add("609 Feathers Hooves Dr.", "Garden City", "WA", "48536", "Emergency Contact"), p("202-704-3098", "Emergency Contact")), 2002)
+pat(33879,"Clemente", "Buccho", "Female", Time.parse("6/18/1970"), add("981 Neuport Lane", "Norcross", "WA", "44931", "Patient"), p("202-337-3556", "Patient"), em("bucchoc@comtel.net", "Patient"), emc("Daniel Buccho", add("981 Neuport Lane", "Norcross", "WA", "44931", "Emergency Contact"), p("202-337-1177", "Emergency Contact")), 1204)
+pat(10800, "Hugues", "Lagrange", "Female", Time.parse("2/20/1955"), add("4021 Holt Street", "Bothell", "WA", "48858", "Patient"), p("202-361-6490", "Patient"), em("hugueslag@fakemail.usa", "Patient"), emc("Larry Lagrange", add("4021 Holt Street", "Bothell", "WA", "48858", "Emergency Contact"), p("202-361-3341", "Emergency Contact")), 2002)
+pat(87543, "Charlot", "Bondy", "Female", Time.parse("4/9/1977"), add("2293 Lee Avenue", "Camden", "WA", "42179", "Patient"), p("202-333-1781", "Patient"), em("bondy246@comtel.net", "Patient"), emc("Amber Bondy", add("2293 Lee Avenue", "Camden", "WA", "42179", "Emergency Contact"), p("202-333-9961", "Emergency Contact")), 5252)
+pat(30100,"Platt", "Guimond", "Male", Time.parse("5/25/1981"), add("4892 Desert Broom Court", "Closter", "WA", "48823", "Patient"), p("202-750-6133", "Patient"), em("guimondpp@fakemail.usa", "Patient"), emc("Thomas Guimond", add("4892 Desert Broom Court", "Closter", "WA", "48823", "Emergency Contact"), p("202-750-6333", "Emergency Contact")), 2002)
+pat(40100, "Melodie", "Perillard", "Female", Time.parse("3/11/1950"), add("538 Hill Haven Drive", "Kileen", "WA", "47896", "Patient"), p("202-258-4374", "Patient"), em("melodiep@teleworm.usa", "Patient"), emc("Adam Perillard", add("538 Hill Haven Drive", "Kileen", "WA", "47896", "Emergency Contact"), p("202-251-8882", "Emergency Contact")), 1204)
+pat(74521,"Charline", "Margand", "Female", Time.parse("1/15/1968"), add("1828 Raoul Wallenberg Place", "Norwalk", "WA", "41238", "Patient"), p("202-899-6757", "Patient"), em("margandchar@telcost.com", "Patient"), emc("Kevin Margand", add("1828 Raoul Wallenberg Place", "Norwalk", "WA", "41238", "Emergency Contact"), p("202-899-1246", "Emergency Contact")), 5252)
+pat(60100,"Cammile", "LaCaille", "Female", Time.parse("11/6/1949"), add("3409 Twin Willow Lane", "Bothell", "WA", "48858", "Patient"), p("202-397-5022", "Patient"), em("lacillecamm@comtel.net", "Patient"), emc("James LaCaille", add("3409 Twin Willow Lane", "Wilmington", "WA", "48858", "Emergency Contact"), p("202-397-1014", "Emergency Contact")), 2002)
 
 #Create some schedules
 puts "Creating schedules..."

@@ -1,5 +1,6 @@
-class EmergancyContact < ActiveRecord::Base
+class EmergencyContact < ActiveRecord::Base
   has_one :phone, :as => :owner
+  has_one :address, :as => :owner
   belongs_to :patient
   
     accepts_nested_attributes_for :phone
