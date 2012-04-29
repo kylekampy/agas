@@ -29,3 +29,6 @@ TODO List
 -Show emails for staffers
 
 -Remove middle name column
+
+-Schedules index. Only show next future, and next 3 months instead of
+   all. It's too huge to render quickly.

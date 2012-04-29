@@ -51,14 +51,42 @@ def pat(id, f_nm, l_nm, gender, dob, address, phone, email, emergency_contact, p
   return p
 end
 
-def apt(start_time, end_time)
-  return Appointment.create([{ :start_time => start_time, :end_time => end_time, :phy_id => Physician.all[rand(Physician.all.length-1)].id, :pat_id => Patient.all[rand(Patient.all.length-1)].id }])[0]
+def apt(pat_id, phy_id, start_time, end_time)
+  return Appointment.create([{ :start_time => start_time, :end_time => end_time, :phy_id => phy_id, :pat_id => pat_id }])[0]
 end
 
-def sch(start_time, end_time)
+def sch(phy_id, start_hour, end_hour, days)
+  mon, tue, wed, thu, fri = false, false, false, false, false
+  if(days == "Mon - Fri")
+    mon, tue, wed, thu, fri = true, true, true, true, true
+  elsif(days == "Mon - Thurs")
+    mon, tue, wed, thu = true, true, true, true
+  elsif(days == "Mon, Wed & Fri")
+    mon, wed, fri = true, true, true
+  elsif(days == "Tue - Fri")
+    tue, wed, thu, fri = true, true, true, true
+  elsif(days == "Mon & Wed")
+    mon, wed = true, true
+  end
   schedules = []
-  Physician.all.each do |phy|
-    schedules << Schedule.create([{ :start_time => start_time, :end_time => end_time, :phy_id => phy.id }])[0]
+  date_counter = Date.parse("1/1/2012")
+  end_date = Date.parse("1/1/2013")
+  while(date_counter < end_date)
+    #Cycle through day by day
+    start_time = Time.parse("#{date_counter.to_s(:db)} #{start_hour}:00:00")
+    end_time = Time.parse("#{date_counter.to_s(:db)} #{12+end_hour}:00:00")
+    if(date_counter.wday == 1 && mon)
+      schedules << Schedule.create([{ :phy_id => phy_id, :start_time => start_time, :end_time => end_time }])[0]
+    elsif(date_counter.wday == 2 && tue)
+      schedules << Schedule.create([{ :phy_id => phy_id, :start_time => start_time, :end_time => end_time }])[0]
+    elsif(date_counter.wday == 3 && wed)
+      schedules << Schedule.create([{ :phy_id => phy_id, :start_time => start_time, :end_time => end_time }])[0]
+    elsif(date_counter.wday == 4 && thu)
+      schedules << Schedule.create([{ :phy_id => phy_id, :start_time => start_time, :end_time => end_time }])[0]
+    elsif(date_counter.wday == 5 && fri)
+      schedules << Schedule.create([{ :phy_id => phy_id, :start_time => start_time, :end_time => end_time }])[0]
+    end
+    date_counter += 1
   end
   schedules
 end
@@ -133,8 +161,6 @@ staff(7245,"Dai", "Peng", [p("202-717-4025", "Medical Staff")], [em("pengdai@cha
 
 #Create some patients
 puts "Creating patients..."
-
-
 pat(10198,"Sabine", "Zweig", "Female", Time.parse("7/5/1976"), add("4590 New York Ave.", "Fort Worth","WA","47895", "Patient"), p("202-985-6384", "Patient"), em("sabinez@telcost.com", "Patient"), emc("Bill Zweig", add("4590 New York Ave." , "Fortworth","WA", "47895", "Emergency Contact"), p("202-985-2546", "Emergency Contact")), 5252)
 pat(10200,"Ralph", "Himmel", "Male", Time.parse("6/13/1938"), add("4099 Leroy Lane", "Watertown", "WA", "48675", "Patient"), p("202-882-8297", "Patient"), em("ralphh@fakemail.usa", "Patient"), emc("Amelia Himmel", add("4099 Leroy Lane", "Watertown", "WA", "48675", "Emergency Contact"), p("202-882-2146", "Emergency Contact")), 1204)
 pat(50377,"Ralf","Abend","Male", Time.parse("8/5/1945"), add("4001 Drainer Ave.", "Bothell", "WA", "48858", "Patient"), p("202-629-0936", "Patient"), em("abendr@fakemail.usa", "Patient"), emc("Ramon Abend", add("4001 Drainer Avenue", "Bothell", "WA", "48858", "Emergency Contact"), p("202-387-4456", "Emergency Contact")), 1204)
@@ -151,21 +177,29 @@ pat(60100,"Cammile", "LaCaille", "Female", Time.parse("11/6/1949"), add("3409 Tw
 
 #Create some schedules
 puts "Creating schedules..."
-sch(Time.parse("2012/5/12 08:00"), Time.parse("2012/5/12 16:00"))
-sch(Time.parse("2012/5/13 08:00"), Time.parse("2012/5/13 16:00"))
-sch(Time.parse("2012/5/14 08:00"), Time.parse("2012/5/14 16:00"))
-sch(Time.parse("2012/5/15 08:00"), Time.parse("2012/5/15 16:00"))
-sch(Time.parse("2012/5/16 08:00"), Time.parse("2012/5/16 16:00"))
-sch(Time.parse("2012/5/17 08:00"), Time.parse("2012/5/17 16:00"))
-sch(Time.parse("2012/5/18 08:00"), Time.parse("2012/5/18 16:00"))
+sch(5252, 8,4, "Mon - Fri")
+sch(1257, 8,4, "Mon - Fri")
+sch(1204, 9,5, "Mon - Thurs")
+sch(6734, 8,4, "Mon, Wed & Fri")
+sch(9005, 9,5, "Tue - Fri")
+sch(7009, 8,1, "Mon & Wed")
+sch(4451, 9,2, "Mon - Fri")
+sch(2002, 9,5, "Tue - Fri")
+sch(3055, 8,4, "Mon - Fri")
+sch(7009, 9,5, "Mon & Wed")
 
 #Create some appointments
 puts "Creating appointments..."
-apt(Time.parse("2012/5/12 13:00"), Time.parse("2012/5/12 14:45"))
-apt(Time.parse("2012/5/13 13:00"), Time.parse("2012/5/13 14:45"))
-apt(Time.parse("2012/5/14 13:00"), Time.parse("2012/5/14 14:45"))
-apt(Time.parse("2012/5/15 13:00"), Time.parse("2012/5/15 14:45"))
-apt(Time.parse("2012/5/16 13:00"), Time.parse("2012/5/16 14:45"))
-apt(Time.parse("2012/5/17 13:00"), Time.parse("2012/5/17 14:45"))
-apt(Time.parse("2012/5/18 13:00"), Time.parse("2012/5/18 14:45"))
-apt(Time.parse("2012/5/19 13:00"), Time.parse("2012/5/19 14:45"))
+apt(10198,5252,Time.parse("7/12/2012 8:30am"), Time.parse("7/12/2012 9:00am"))
+apt(10200,1257,Time.parse("4/30/2012 1:00pm"), Time.parse("4/30/2012 1:30pm"))
+apt(50377,1204,Time.parse("5/3/2012 9:00am"), Time.parse("5/3/2012 9:30am"))
+apt(10404,6734,Time.parse("4/27/2012 10:00am"), Time.parse("4/27/2012 10:30am"))
+apt(20148,9005,Time.parse("5/15/2012 4:30pm"), Time.parse("5/15/2012 5:00pm"))
+apt(10600,7009,Time.parse("8/29/2012 12:00pm"), Time.parse("8/29/2012 12:30pm"))
+apt(33879,1204,Time.parse("6/4/2012 11:30am"), Time.parse("6/4/2012 12:00pm"))
+apt(10800,4451,Time.parse("5/11/2012 9:30am"), Time.parse("5/11/2012 10:00pm"))
+apt(87543,5252,Time.parse("6/22/2012 3:30pm"), Time.parse("6/22/2012 4:00pm"))
+apt(30100,2002,Time.parse("5/4/2012 2:00pm"), Time.parse("5/4/2012 2:30pm"))
+apt(40100,3055,Time.parse("8/8/2012 8:00am"), Time.parse("8/8/2012 8:30am"))
+apt(74521,7009,Time.parse("6/18/2012 10:30am"), Time.parse("6/18/2012 11:00am"))
+apt(60100,2002,Time.parse("5/31/2012 11:00am"), Time.parse("5/31/2012 11:30pm"))
