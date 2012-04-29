@@ -7,11 +7,11 @@
     <th><%= sortable "firstname", "First Name"%></th>
     <th><%= sortable "office_num","Office Number"%></th>
     <th><%= sortable "specialty", "Specialty"%></th>
-    <th colspan="3"></th>
-  </tr>  </tr>
+    <th colspan="3"><input type="text" size="10" class="defaultText" value="Filter"></th>
+  </tr>
 
 <% @physicians.each do |physician| %>
-  <tr>
+  <tr class="tr_body">
     <td><%= physician.id %></td>
     <td><%= physician.lastname %></td>
     <td><%= physician.firstname%></td>

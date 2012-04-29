@@ -4,8 +4,8 @@
     <th><%= sortable "end_time", "End time"%></th>
     <th>Physician</th>
     <th>Patient</th>
-    <th colspan="3"></th>
-  </tr>  </tr>
+    <th colspan="3"><input type="text" size="10" class="defaultText" value="Filter"></th>
+  </tr>
 
 <% #A little logic to determine which appointments to display %>
 <% appointments = nil %>
@@ -24,7 +24,7 @@
 <% phys_for_apt = Physician.find_by_id(appointment.phy_id) %>
 <% pat_for_apt = Patient.find_by_id(appointment.pat_id) %>
 
-  <tr>
+  <tr class="tr_body">
     <td><%= appointment.start_time.strftime("%m/%d/%Y %I:%M %p") %></td>
     <td><%= appointment.end_time.strftime("%m/%d/%Y %I:%M %p") %></td>
     <td><%= link_to "#{phys_for_apt.lastname}, #{phys_for_apt.firstname}", phys_for_apt %></td>

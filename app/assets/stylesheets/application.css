@@ -6,12 +6,9 @@
  *= require_tree . 
 */
 body{
-  /* this needs fixing */
+
 }
-/* Messes with the datepickers layout
-tr {
- border: solid black;
-}*/
+
 .index_table{
     border-style: solid;
     border-width: 2px;
@@ -92,3 +89,6 @@ tr {
 }
 #header{
 }
+
+.filter {  }
+.defaultText { color: #a1a1a1; font-style: italic; }
