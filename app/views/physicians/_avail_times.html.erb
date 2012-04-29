@@ -6,7 +6,7 @@
   </tr>
 
   <% avail_times.each do |cur_time_block| %>
-  <tr>
+  <tr class="tr_body">
     <td><%= cur_time_block.start_time.strftime("%m/%d/%Y %I:%M %p") %></td>
     <td><%= cur_time_block.end_time.strftime("%m/%d/%Y %I:%M %p") %></td>
   <tr>
