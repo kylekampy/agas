@@ -4,7 +4,7 @@
 <p id="notice"><%= notice %></p>
 <p>
   <h2>
-  <%= "#{@patient.firstname} #{@patient.middlename} #{@patient.lastname}"%>
+  <%= "#{@patient.firstname} #{@patient.middlename} #{@patient.lastname} : #{@patient.id}"%>
   </h2>
 </p>
 <p>
@@ -13,17 +13,48 @@
 </p>
 
 <p>
+  <b>Secondary Physician:</b>
+  <% if @patient.second_physician_id %>
+  <% second_phys_for_pat = Physician.find_by_id(@patient.second_phys_id) %>
+  <%= link_to "#{second_phys_for_pat.lastname}, #{second_phys_for_pat.firstname}", second_phys_for_pat %>
+  <% else %>
+  None
+  <% end %>
+</p>
+
+<p>
+  <b>Gender</b>
+  <%= @patient.gender %>
+</p>
+
+<p>
   <b>Date of birth:</b>
   <%= @patient.date_of_birth %>
 </p>
 
 <p>
-  <b>Pharmacy:</b>
+  <b>Emergency Contact Name:</b>
+  <%= @patient.emergency_contact.name %>
+</p>
+
+<p>
+  <b>Emergency Contact Phone:</b>
+  <%= @patient.emergency_contact.phone.phone %>
+</p>
+
+<p>
+  <b>Emergency Contact Address:</b>
+  <% add = @patient.emergency_contact.address %>
+  <%= "#{add.street}, #{add.city} #{add.state} #{add.zip}" %>
+</p>
+
+<p>
+  <b>Preferred Pharmacy:</b>
   <%= @patient.pharmacy_id %>
 </p>
 
 <p>
-  <b>Insurance:</b>
+  <b>Insurance Membership Number:</b>
   <%= @patient.insurance_id %>
 </p>
 
@@ -38,8 +69,10 @@
     <%= render :partial => "emails/show", :locals => {:f => email}%>
   <% end %>
   
-
+<p>
+  <b>Appointment History:</b>
     <%= render :partial => 'appointments/index', :locals => {:apps => @appointments, :pat_id => @patient.primary_phy_id} %>
+</p>
 
 <%= link_to 'Edit', edit_patient_path(@patient) %> |
 <%= link_to 'Back', patients_path %>

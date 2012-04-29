@@ -32,13 +32,20 @@ class Appointment < ActiveRecord::Base
     return avail_times
   end
 
-  def self.available_future_times(phy_id)
+  def self.available_future_times(phy_id, months=-1)
+    time_in_a_month = 2592000
+    time_dilation = time_in_a_month * 12 #Default to a year
+    if(months > 0)
+      time_dilation = time_in_a_month * months
+    end
+    ret_times = []
     times = available_times(phy_id)
     times.each do |time|
-      if(time.start_time < Time.now)
-        times.delete(time)
+      if(time.start_time > Time.now && time.start_time < (Time.now + time_dilation))
+        ret_times << time
       end
     end
+    ret_times
   end
 
   def is_available?(start_time, end_time)

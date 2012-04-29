@@ -3,12 +3,10 @@
 <table class="index_table">
   <tr>
     <th><%= sortable "firstname", "First Name"%></th>
-    <th><%= sortable "middlename", "Middle Name"%></th>
     <th><%= sortable "lastname", "Last Name"%></th>
+    <th><%= sortable "gender", "Gender" %></th>
     <th>Primary Physician</th>
     <th><%= sortable "date_of_birth", "Date of birth"%> </th>
-    <th>Pharmacy ID</th>
-    <th>Insurance ID</th>
     <th colspan="3"></th>
   </tr>
 
@@ -25,12 +23,10 @@
 <% phys_for_pat = Physician.find_by_id(patient.primary_phy_id) %>
   <tr>
     <td><%= patient.firstname %></td>
-    <td><%= patient.middlename %></td>
     <td><%= patient.lastname %></td>
+    <td><%= patient.gender %></td>
     <td><%= link_to "#{phys_for_pat.lastname}, #{phys_for_pat.firstname}", phys_for_pat %></td>
     <td><%= patient.date_of_birth %></td>
-    <td><%= patient.pharmacy_id %></td>
-    <td><%= patient.insurance_id %></td>
     <td><%= link_to 'Show', patient %></td>
     <td><%= link_to 'Edit', edit_patient_path(patient) %></td>
     <td><%= link_to "&#215;".html_safe, patient, :confirm => 'Are you sure?', :method => :delete %></td>

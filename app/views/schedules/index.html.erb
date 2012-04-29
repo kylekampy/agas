@@ -17,6 +17,7 @@
 <% elsif(is_medstaff) %>
    <% schedules = Schedule.where(:phy_id => current_user.doc_id) %>
 <% end %>
+<% schedules = future_schedules(schedules, 4) %>
 <% schedules.each do |schedule| %>
 <% phys_for_sch = Physician.find_by_id(schedule.phy_id) %>
   <tr>

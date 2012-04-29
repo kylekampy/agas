@@ -1,4 +1,4 @@
-<% avail_times = Appointment.available_future_times(@physician.id) %>
+<% avail_times = Appointment.available_future_times(@physician.id, 6) %>
 <table class="index_table">
   <tr>
     <th><%= sortable "Start Time" %></th>
