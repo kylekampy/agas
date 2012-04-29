@@ -1,13 +1,10 @@
 TODO List
 ---------
 
--Emergency Contact
-
 -Physicians per Department (Might need to be demoed?)
 
 -Billing
---Should probably have a DB of bills for record keeping. Also, status
-   (pending, payed, etc.)
+--Should probably have a DB of bills for record keeping. Also, status(pending, payed, etc.)
 
 -Only 1 address for each phys and pat
 
@@ -20,15 +17,14 @@ TODO List
 -Aesthetics
 --Boxes around nested forms (Phone type and number should be visually grouped)
 
--Seeds.rb issue - Times don't match when parsed. Must be a time zone issue?
-
 -Move this TODO list to actual issues on Github so they can be assigned and worked on by us.
 
 -In the form for each model, instead of id combo boxes, drop downs of actual names would be better.
 
 -Show emails for staffers
 
--Remove middle name column
+-Remove middle name column. Unused by seed data.
 
--Schedules index. Only show next future, and next 3 months instead of
-   all. It's too huge to render quickly.
+-Schedules index. Only show next future, and next 3 months instead of all. It's too huge to render quickly.
+
+-Physician show, filter blocks by some designated time length. Also, only show next 3 months?
