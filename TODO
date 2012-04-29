@@ -20,3 +20,5 @@ TODO List
 -In the form for each model, instead of id combo boxes, drop downs of actual names would be better.
 
 -Forms: Verify all have every field they are supposed to have!
+
+-Forms (models really): Validations for all fields that are required.
