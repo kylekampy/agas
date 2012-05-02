@@ -42,11 +42,11 @@
     <%= f.date_select :date_of_birth %>
   </div>
   <div class="field">
-    <%= f.label :pharmacy_id, :value => "Preferred Pharmacy" %><br />
+    <%= f.label :pharmacy_id, "Preferred Pharmacy"%><br />
     <%= f.number_field :pharmacy_id %>
   </div>
   <div class="field">
-    <%= f.label :insurance_id %><br />
+    <%= f.label :insurance_id, "Insurance Membership Number" %><br />
     <%= f.number_field :insurance_id %>
   </div>
   <%= f.fields_for :addresses %>
