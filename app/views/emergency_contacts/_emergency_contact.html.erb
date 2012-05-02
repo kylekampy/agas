@@ -2,3 +2,16 @@
     <%= f.label :name%><br />
     <%= f.text_field :name%>
 </div>
+
+<% f.object.build_phone unless f.object.phone %>
+<%= f.fields_for :phone do |contact| %>
+
+    <%= render :partial => '/phones/phone_fields', :locals => { :f => contact } %>
+<% end %>
+
+<% f.object.build_address unless f.object.address %>
+   <%= f.fields_for :address do |contact| %>
+
+     <%= render :partial => '/addresses/address_fields', :locals => { :f => contact } %>
+<% end %>
+
