@@ -47,14 +47,16 @@
   <%= f.fields_for :addresses %>
 <p><%= f.link_to_add "Add Address", :addresses%></p>
 
-   <%= debug "here" %>
-   <% f.fields_for :emergency_contact do |contact| %>
-
-     <%= render :partial => '/emergency_contacts/emergency_contact', :locals => { :f => contact } %>
+<fieldset>
+  <legend>Emergency Contact: </legend>
+   <% @patient.build_emergency_contact unless @patient.emergency_contact %>
+   <%= f.fields_for :emergency_contact do |contact| %>
+     <%= render :partial => '/emergency_contacts/emergency_contact', :locals => { :f => contact} %>
   <% end %>
+  </fieldset>
+
   <%= f.fields_for :emails  %>
 <p><%= f.link_to_add "Add Email", :emails %></p>
-
   <%= f.fields_for :phones  %>
 <p><%= f.link_to_add "Add a Phone", :phones %></p>
 

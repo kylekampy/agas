@@ -30,7 +30,6 @@ class PatientsController < ApplicationController
   # GET /patients/new.json
   def new
     @patient = Patient.new
-    @patient.build_emergency_contact
     respond_to do |format|
       format.html # new.html.erb
       format.json { render :json => @patient }
