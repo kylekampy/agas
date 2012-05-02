@@ -21,9 +21,12 @@
   </div>
   <div class="field">
     <% #TODO: Pull this out of the session for the currently logged in phys. If this isn't a physician viewing, they shouldn't have access to the page in the first place. %>
+    <% if(is_admin) %>
     <%= f.label :phy_id, "Physician" %><br />
     <%= f.select("phy_id", Physician.all.collect {|p| [ "#{p.lastname}, #{p.firstname}", p.id ] }, {:include_blank => 'None'})%>
-
+    <% else %>
+    <%= f.hidden_field :phy_id, :value => current_user.id %>
+    <% end %>
   </div>
   <div class="actions">
     <%= f.submit %>

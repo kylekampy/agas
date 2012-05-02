@@ -1,7 +1,7 @@
 class Login < ActiveRecord::Base
   belongs_to :owner, :polymorphic => true
-  attr_accessible :username, :password, :password_confirmation
-  
+  attr_accessible :username, :password, :password_confirmation, :owner_type, :owner_id
+
   attr_accessor :password
   before_save :encrypt_password
   

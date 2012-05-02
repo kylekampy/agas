@@ -7,4 +7,7 @@ class MedicalStaff < ActiveRecord::Base
   validates_presence_of :lastname
 
   accepts_nested_attributes_for :phones, :allow_destroy => true
+  accepts_nested_attributes_for :login, :allow_destroy => true
+  accepts_nested_attributes_for :emails, :allow_destroy => true
+
 end

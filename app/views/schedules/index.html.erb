@@ -33,4 +33,6 @@
 
 <br />
 
+<% if(is_admin || is_phys) %>
 <%= link_to 'New Schedule', new_schedule_path %>
+<% end %>

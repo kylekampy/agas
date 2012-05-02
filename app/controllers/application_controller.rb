@@ -33,7 +33,7 @@ class ApplicationController < ActionController::Base
   def current_login_type
     unless session[:login_id].nil?
       puts "current_login.owner_type = #{current_login.owner_type}"
-      current_login.owner_type 
+      current_login.owner_type
     end
   end
   

@@ -109,7 +109,7 @@ def p(number, owner_type)
 end
 
 def add(street, city, state, zip, owner_type)
-  return Address.create([{ :zip => zip, :street => street, :country => "US", :city => city, :owner_type => owner_type }])[0]
+  return Address.create([{ :zip => zip, :street => street, :country => "US", :city => city, :state => state, :owner_type => owner_type }])[0]
 end
 
 #Email

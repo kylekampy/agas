@@ -13,10 +13,12 @@
         <%=
            unless current_login.nil?
            
-           if current_login_type == "Physician"
+           if (is_phys)
            link_to("#{current_user.firstname} #{current_user.lastname}", current_user, {:id => "header_link"})
-        elsif current_login_type == "Administrator"
+        elsif (is_admin)
         link_to("#{current_login.username}", current_user, {:id => "header_link"})
+        elsif (is_medstaff)
+        link_to("#{current_user.firstname} #{current_user.lastname}", current_user, {:id => "header_link"})
         end
         end
         %>
@@ -38,7 +40,7 @@
         <%= link_to("Administrators", administrators_path) %> |
         <%#TODO: link_to("Health Prices", health_prices_path) %>
         <%= link_to("Appointments", appointments_path)%> |
-        <%= link_to("Schedule", schedules_path)%> |
+        <%= link_to("Schedules", schedules_path)%> |
         <%= link_to("Generate Bill", new_bill_path)%>
         
         <% elsif(is_phys) #links for physicians %>
@@ -46,7 +48,7 @@
         <%= link_to("Medical Staffers", medical_staffs_path) %> |
         <%= link_to("Patients", patients_path) %> |
         <%= link_to("Appointments", appointments_path)%> |
-        <%= link_to("Schedule", schedules_path)%>
+        <%= link_to("Schedules", schedules_path)%>
         
         <% elsif(is_medstaff) #links for medical staff %>
         <% ###### Make these all dependent. So only show patients for this staffers associated physician. %>

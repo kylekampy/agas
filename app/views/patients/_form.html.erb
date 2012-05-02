@@ -48,9 +48,9 @@
 <p><%= f.link_to_add "Add Address", :addresses%></p>
 
    <%= debug "here" %>
-   <% f.fields_for :emergancy_contact do |contact| %>
+   <% f.fields_for :emergency_contact do |contact| %>
 
-     <%= render :partial => '/emergancy_contacts/emergancy_contact', :locals => { :f => contact } %>
+     <%= render :partial => '/emergency_contacts/emergency_contact', :locals => { :f => contact } %>
   <% end %>
   <%= f.fields_for :emails  %>
 <p><%= f.link_to_add "Add Email", :emails %></p>

@@ -3,5 +3,6 @@
 
     <%= render :partial => 'appointments/index', :locals => {:apps => @appointments, :pat_id => nil} %>
 
-
+<% if(is_admin) %>
 <%= link_to 'New Appointment', new_appointment_path %>
+<% end %>
