@@ -10,7 +10,7 @@ Agas::Application.routes.draw do
   get "sign_up" => "users#new", :as => "sign_up"
   root :to => "home#show"
   match "/physicians/:id/edit_password", :to =>"physicians#edit_password", :as => "edit_password_physician"
-  match "/administrators/:id/edit_password", :to =>"administrators#edit_password", :as => "edit_password_admin"
+  match "/administrators/:id/edit_password", :to =>"administrators#edit_password", :as => "edit_password_administrator"
 
   resources :logins
   resources :sessions
