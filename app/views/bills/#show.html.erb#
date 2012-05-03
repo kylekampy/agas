@@ -1,0 +1,78 @@
+<% content_for :title, "Showing Bill" %>
+
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Id:</b>
+  <%= @bill.id %>
+</p>
+
+<p>
+  <b>Unique hash:</b>
+  <%= @bill.unique_hash %>
+</p>
+
+<p>
+  <b>Date:</b>
+  <%= @bill.date %>
+</p>
+
+<p>
+  <b>Time:</b>
+  <%= @bill.time.strftime("%I:%M %p") %>
+</p>
+
+<p>
+  <b>Status:</b>
+  <%= @bill.status %>
+</p>
+
+<p>
+  <b>Codes:</b>
+  <%= @bill.codes %>
+</p>
+
+<p>
+  <b>Price:</b>
+  <%= number_to_currency @bill.price %>
+</p>
+
+<p>
+  <b>Insurance coverage:</b>
+  <%= number_to_currency @bill.insurance_coverage %>
+</p>
+
+<p>
+  <b>Payment:</b>
+  <%= number_to_currency @bill.payment %>
+</p>
+
+<p>
+  <b>Amount Remaining:</b>
+  <%= number_to_currency (@bill.price - @bill.insurance_coverage - @bill.payment) %>
+</p>
+
+
+<% if(@bill.phys_id) %>
+<% phys = Physician.find_by_id(@bill.phys_id) %>
+<p>
+  <b>Physician:</b>
+  <%= link_to "#{phys.lastname}, #{phys.firstname}", phys %>
+</p>
+<% end %>
+<% if(@bill.medstaff_id) %>
+<% medstaff = MedicalStaffs.find_by_id(@bill.medstaff_id) %>
+<p>
+  <b>Medical Staffer:</b>
+  <%= link_to "#{medstaff.lastname}, #{medstaff.firstname}", medstaff %>
+</p>
+<% end %>
+<% pat = Patient.find_by_id(@bill.pat_id) %>
+<p>
+  <b>Patient:</b>
+  <%= link_to "#{pat.lastname}, #{pat.firstname}", pat %>
+</p>
+
+
+<%= link_to 'Edit', edit_bill_path(@bill) %> |
+<%= link_to 'Back', bills_path %>

@@ -9,8 +9,12 @@
 
 <p>
   <b>Physician:</b>
-  <% physician = Physician.find(@medical_staff.doc_id )%>
-  <%= link_to "#{physician.firstname} #{physician.middlename} #{physician.lastname}", physician%>
+  <% physician = Physician.find_by_id(@medical_staff.doc_id )%>
+  <% if (physician) %>
+  <%= link_to "#{physician.firstname} #{physician.middlename} #{physician.lastname}", physician %>
+  <% else %>
+  None
+  <% end %>
 </p>
 
   <% @medical_staff.phones.each do  |phone| %>

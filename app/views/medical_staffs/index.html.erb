@@ -16,7 +16,11 @@
   <tr class="tr_body">
     <td><%= medical_staff.firstname %></td>
     <td><%= medical_staff.lastname %></td>
+    <% if(phys_for_staffer) %>
     <td><%= link_to "#{phys_for_staffer.lastname}, #{phys_for_staffer.firstname}", phys_for_staffer %></td>
+    <% else %>
+    <td>None</td>
+    <% end %>
     <td><%= link_to 'Show', medical_staff %></td>
     <% if is_admin %>
     <td><%= link_to 'Edit', edit_medical_staff_path(medical_staff) %></td>
