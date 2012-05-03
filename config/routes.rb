@@ -1,4 +1,6 @@
 Agas::Application.routes.draw do  
+  resources :bills
+
   resources :medical_staffs
 
   get "home/show"
@@ -31,8 +33,6 @@ Agas::Application.routes.draw do
 
   resources :addresses
   
-  resources :bills
-
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

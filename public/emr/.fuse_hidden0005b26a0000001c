@@ -1,0 +1,54 @@
+<Emrs>
+	<Record>
+		<ID	>2345</ID>
+		<Time>16:00</Time>
+		<Date>2012-04-23</Date>
+		<PatientID>1234443</PatientID>
+		<RecorderID>1234323</RecorderID>
+		<IsPhysician>Yes</IsPhysician>
+		<IsReferred>No</IsReferred>
+		<Bills>
+			<Bill>
+				<Code>123.01</Code>
+				<PerformedBy>MedicalStaff</PerformedBy>
+				<ID>76678</ID>
+			</Bill>
+			<Bill>
+				<Code>233.05</Code>
+				<PerformedBy>Physician</PerformedBy>
+				<ID>54454</ID>
+			</Bill>
+			<Bill>
+				<Code>223.11</Code>
+				<PerformedBy>MedicalStaff</PerformedBy>
+				<ID>12122</ID>
+			</Bill>
+		</Bills>
+	</Record>
+	<Record>
+		<ID	>2345</ID>
+		<Time>16:00</Time>
+		<Date>2012-04-23</Date>
+		<PatientID>1234443</PatientID>
+		<RecorderID>1234323</RecorderID>
+		<IsPhysician>Yes</IsPhysician>
+		<IsReferred>No</IsReferred>
+		<Bills>
+			<Bill>
+				<Code>123.01</Code>
+				<PerformedBy>MedicalStaff</PerformedBy>
+				<ID>76678</ID>
+			</Bill>
+			<Bill>
+				<Code>233.05</Code>
+				<PerformedBy>Physician</PerformedBy>
+				<ID>54454</ID>
+			</Bill>
+			<Bill>
+				<Code>223.11</Code>
+				<PerformedBy>MedicalStaff</PerformedBy>
+				<ID>12122</ID>
+			</Bill>
+		</Bills>
+	</Record>
+</Emrs>
