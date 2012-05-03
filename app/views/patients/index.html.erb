@@ -25,7 +25,11 @@
     <td><%= patient.firstname %></td>
     <td><%= patient.lastname %></td>
     <td><%= patient.gender %></td>
+    <% if phys_for_pat %>
     <td><%= link_to "#{phys_for_pat.lastname}, #{phys_for_pat.firstname}", phys_for_pat %></td>
+    <% else %>
+    <td>None</td>
+    <% end %>
     <td><%= patient.date_of_birth %></td>
     <td><%= link_to 'Show', patient %></td>
     <td><%= link_to 'Edit', edit_patient_path(patient) %></td>

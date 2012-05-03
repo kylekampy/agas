@@ -11,5 +11,5 @@ class Patient < ActiveRecord::Base
   accepts_nested_attributes_for :emails, :allow_destroy => true
   accepts_nested_attributes_for :emergency_contact, :allow_destroy => true
   attr_accessible :emergency_contact_attributes # the format is the child_class followed by the "_attributes"
-  attr_accessible :primary_phy_id, :insurance_id, :middlename, :lastname, :second_physician_id, :firstname, :date_of_birth, :pharmacy_id #For some reason these were all protected when attempting to seed. I have no idea why, but this fixed it.
+  attr_accessible :primary_phy_id, :insurance_id, :middlename, :lastname, :second_physician_id, :firstname, :date_of_birth, :pharmacy_id, :gender
 end

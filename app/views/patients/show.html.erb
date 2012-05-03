@@ -9,7 +9,11 @@
 </p>
 <p>
   <b>Primary Phyisican:</b>
+  <% if phys_for_pat %>
   <%= link_to "#{phys_for_pat.lastname}, #{phys_for_pat.firstname}", phys_for_pat %>
+  <% else %>
+  None
+  <% end %>
 </p>
 
 <p>
@@ -39,13 +43,21 @@
 
 <p>
   <b>Emergency Contact Phone:</b>
+  <% if @patient.emergency_contact.phone %>
   <%= @patient.emergency_contact.phone.phone %>
+  <% else %>
+  None
+  <% end %>
 </p>
 
 <p>
   <b>Emergency Contact Address:</b>
   <% add = @patient.emergency_contact.address %>
+  <% if add %>
   <%= "#{add.street}, #{add.city} #{add.state} #{add.zip}" %>
+  <% else %>
+  None
+  <% end %>
 </p>
 
 <p>

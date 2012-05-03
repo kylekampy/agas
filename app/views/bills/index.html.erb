@@ -16,7 +16,11 @@
 <% pat_for_bill = Patient.find_by_id(bill.pat_id) %>
   <tr>
     <td><%= bill.id %></td>
+    <% if pat_for_bill %>
     <td><%= link_to "#{pat_for_bill.lastname}, #{pat_for_bill.firstname}", pat_for_bill %></td> 
+    <% else %>
+    <td>None</td>
+    <% end %>
     <td><%= bill.status %></td>
     <td><%= number_to_currency bill.price %></td>
     <td><%= number_to_currency bill.insurance_coverage %></td>

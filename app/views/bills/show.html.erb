@@ -57,14 +57,22 @@
 <% phys = Physician.find_by_id(@bill.phys_id) %>
 <p>
   <b>Physician:</b>
+  <% if phys %>
   <%= link_to "#{phys.lastname}, #{phys.firstname}", phys %>
+  <% else %>
+  None
+  <% end %>
 </p>
 <% end %>
 <% if(@bill.medstaff_id) %>
 <% medstaff = MedicalStaffs.find_by_id(@bill.medstaff_id) %>
 <p>
   <b>Medical Staffer:</b>
+  <% if medstaff %>
   <%= link_to "#{medstaff.lastname}, #{medstaff.firstname}", medstaff %>
+  <% else %>
+  None
+  <% end %>
 </p>
 <% end %>
 <% pat = Patient.find_by_id(@bill.pat_id) %>
