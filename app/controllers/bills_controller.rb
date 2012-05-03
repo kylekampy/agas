@@ -2,6 +2,7 @@ class BillsController < ApplicationController
   require 'digest/md5'
   require 'uri'
   require 'net/http'
+  require 'rexml/document'
   helper_method :generate_new_bill
   # GET /bills
   # GET /bills.json
@@ -103,7 +104,7 @@ private
   
   def generate_new_bills(file)
     begin
-      require 'rexml/document'
+
       doc = REXML::Document.new(file)
       bills = []
       doc.elements.each("Emrs/Record") do |record|
@@ -153,6 +154,7 @@ private
         nbill.date = bill.date
         nbill.time = bill.time
         nbill.codes = bill.codes.join(",")
+        nbill.payment = 0.0
         bills << nbill
       end      
       bills
@@ -183,30 +185,43 @@ private
     bill.actions.each do |action|
       claim += "\t<transaction externalID=\"#{action[:id]}\" amountBilled=\"#{price_for_code(action[:code])}\" ICD9=\"#{action[:code]}\" physicianName=\"#{get_phys_name_for_action(action)}\" medicalStaffName=\"#{get_medical_staff_name_for_action(action)}\" />\n"
     end
-    claim += "</claim>\n"
+    claim += "</claim>"
     puts "-------------CLAIM--------------------"
     puts claim
     puts "--------------------------------------"
-    signature = Digest::SHA1.hexdigest("#{Digest::SHA1.hexdigest(claim)}Administrative Group")
+    signature = Digest::SHA1.hexdigest("#{Digest::SHA1.hexdigest(claim)}123Administrative Group Key456")
     puts "Signature = #{signature}"
     request = ""
     request += "<request>\n"
-    request += "<client id=\"1\" signature=\"#{signature}\" />\n"
-    request += claim
-    request += "</request>"
+    request += "<client id=\"100\" signature=\"#{signature}\" />\n"
+    request += claim.strip
+    request += "\n</request>"
+    uri = URI.parse('http://cs744.dyndns.org/services/submitClaim.php')
+    http_request = Net::HTTP::Post.new(uri.path)
+    http_request.body = request
     puts "----------------REQUEST--------------"
-    puts request
+    puts http_request.body
     puts "-------------------------------------"
-    x = Net::HTTP.post_form(URI.parse('http://cs744.dyndns.org/services/submitClaim.php'), request)
+    http = Net::HTTP.new(uri.host, uri.port)
+    response = http.request(http_request)
     puts "-------------RESPONSE----------------"
-    puts x.body
+    puts response.body
     puts "-------------------------------------"
-    return parse_response(x.body)
+    return parse_response(response.body)
   end
   
   def parse_response(xml_response)
-    #TODO!
-    return -1
+    begin
+      total_amount_covered = 0
+      doc = REXML::Document.new(xml_response)
+      doc.elements.each("response/claim/transaction") do |trans|
+        puts "current transacation = \"#{trans}\""
+        total_amount_covered += trans.attributes["amountPaid"].to_i
+      end
+      return total_amount_covered
+    rescue
+      return -1
+    end
   end
 
   def get_phys_name_for_action(action)

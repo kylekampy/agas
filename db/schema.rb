@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120503064056) do
+ActiveRecord::Schema.define(:version => 20120503064057) do
 
   create_table "addresses", :force => true do |t|
     t.string   "zip"
@@ -52,6 +52,7 @@ ActiveRecord::Schema.define(:version => 20120503064056) do
     t.integer  "pat_id"
     t.integer  "medstaff_id"
     t.string   "codes"
+    t.float    "payment"
   end
 
   create_table "emails", :force => true do |t|

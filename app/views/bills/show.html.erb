@@ -39,8 +39,19 @@
 
 <p>
   <b>Insurance coverage:</b>
-  <%= @bill.insurance_coverage %>
+  <%= number_to_currency @bill.insurance_coverage %>
 </p>
+
+<p>
+  <b>Payment:</b>
+  <%= number_to_currency @bill.payment %>
+</p>
+
+<p>
+  <b>Amount Remaining:</b>
+  <%= number_to_currency (@bill.price - @bill.insurance_coverage - @bill.payment) %>
+</p>
+
 
 <% if(@bill.phys_id) %>
 <% phys = Physician.find_by_id(@bill.phys_id) %>
