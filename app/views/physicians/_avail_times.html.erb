@@ -1,16 +1,18 @@
 <% avail_times = Appointment.available_future_times(@physician.id, 6) %>
+<% paging = Kaminari.paginate_array(avail_times).page(1).per(15) %>
 <table class="index_table">
   <tr>
-    <th><%= sortable "Start Time" %></th>
-    <th><%= sortable "End Time" %></th>
+    <th><%=  "Start Time" %></th>
+    <th><%=  "End Time" %></th>
   </tr>
 
-  <% avail_times.each do |cur_time_block| %>
+  <% paging.each do |cur_time_block| %>
   <tr class="tr_body">
     <td><%= cur_time_block.start_time.strftime("%m/%d/%Y %I:%M %p") %></td>
     <td><%= cur_time_block.end_time.strftime("%m/%d/%Y %I:%M %p") %></td>
   <tr>
-  <% end %>
+<% end %>
+<%= paginate paging %>
 
 </table>
 

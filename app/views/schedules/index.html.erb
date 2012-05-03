@@ -9,16 +9,7 @@
   </tr> 
 
 <% #A little logic to determine which appointments to display %>
-<% schedules = nil %>
-<% if(is_admin) %>
-   <% schedules = @schedules %>
-<% elsif(is_phys) %>
-   <% schedules = Schedule.where(:phy_id => current_user.id) %>
-<% elsif(is_medstaff) %>
-   <% schedules = Schedule.where(:phy_id => current_user.doc_id) %>
-<% end %>
-<% schedules = future_schedules(schedules, 4) %>
-<% schedules.each do |schedule| %>
+<% @schedules.each do |schedule| %> 
 <% phys_for_sch = Physician.find_by_id(schedule.phy_id) %>
   <tr class="tr_body">
     <td><%= schedule.start_time.strftime("%m/%d/%Y %I:%M %p") %></td>
@@ -30,6 +21,7 @@
   </tr>
 <% end %>
 </table>
+<%= paginate @schedules %>
 
 <br />
 

@@ -9,7 +9,13 @@ class SchedulesController < ApplicationController
   # GET /schedules.json
   def index
 
-    @schedules = Schedule.order(sort_column + " " + sort_direction)
+    if(is_admin)
+       @schedules = Schedule.order(sort_column + " " + sort_direction).page(params[:page])
+    elsif(is_phys) 
+       @schedules = Schedule.where(:phy_id => current_user.id).order(sort_column + " " + sort_direction).page(params[:page])
+    elsif(is_medstaff)
+       @schedules = Schedule.where(:phy_id => current_user.doc_id).order(sort_column + " " + sort_direction).page(params[:page])
+    end
     respond_to do |format|
       format.html # index.html.erb
     end
