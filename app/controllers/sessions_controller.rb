@@ -12,8 +12,7 @@ class SessionsController < ApplicationController
        logger.debug "Session is #{session[:login_id]}"
       redirect_to root_path, :notice => "Logged in!"
     else
-      flash.now.alert = "Invalid username or password"
-      render "new"
+      redirect_to log_in_path, :notice => "Invalid username or password!"
     end
   end
 
