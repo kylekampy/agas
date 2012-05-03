@@ -1,0 +1,28 @@
+<Emrs>
+	<Record>
+		<ID>2346</ID>
+		<Time>13:00</Time>
+		<Date>2012-04-30</Date>
+		<PatientID>10200</PatientID>
+		<RecorderID>1257</RecorderID>
+		<IsPhysician>Yes</IsPhysician>
+		<IsReferred>No</IsReferred>
+		<Bills>
+			<Bill>
+				<Code>9918</Code>
+				<PerformedBy>Physician</PerformedBy>
+				<ID>1257</ID>
+			</Bill>
+			<Bill>
+				<Code>9944</Code>
+				<PerformedBy>Medical Staff</PerformedBy>
+				<ID>9115</ID>
+			</Bill>
+			<Bill>
+				<Code>9765</Code>
+				<PerformedBy>Physician</PerformedBy>
+				<ID>1257</ID>
+			</Bill>
+		</Bills>
+	</Record>
+</Emrs>

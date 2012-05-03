@@ -1,25 +1,25 @@
 <Emrs>
 	<Record>
-		<ID>2345</ID>
-		<Time>16:00</Time>
-		<Date>2012-04-23</Date>
-		<PatientID>10200</PatientID>
+		<ID>2346</ID>
+		<Time>10:00</Time>
+		<Date>2012-04-27</Date>
+		<PatientID>10404</PatientID>
 		<RecorderID>6734</RecorderID>
 		<IsPhysician>Yes</IsPhysician>
 		<IsReferred>No</IsReferred>
 		<Bills>
 			<Bill>
-				<Code>123.01</Code>
+				<Code>3421</Code>
 				<PerformedBy>MedicalStaff</PerformedBy>
 				<ID>2214</ID>
 			</Bill>
 			<Bill>
-				<Code>233.05</Code>
+				<Code>4201</Code>
 				<PerformedBy>Physician</PerformedBy>
 				<ID>6734</ID>
 			</Bill>
 			<Bill>
-				<Code>223.11</Code>
+				<Code>4283</Code>
 				<PerformedBy>MedicalStaff</PerformedBy>
 				<ID>5532</ID>
 			</Bill>
