@@ -1,5 +1,5 @@
 <% avail_times = Appointment.available_future_times(@physician.id, 6) %>
-<% paging = Kaminari.paginate_array(avail_times).page(1).per(15) %>
+<% paging = Kaminari.paginate_array(avail_times).page(params[:page]).per(15) %>
 <table class="index_table">
   <tr>
     <th><%=  "Start Time" %></th>
