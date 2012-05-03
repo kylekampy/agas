@@ -27,8 +27,16 @@
   <tr class="tr_body">
     <td><%= appointment.start_time.strftime("%m/%d/%Y %I:%M %p") %></td>
     <td><%= appointment.end_time.strftime("%m/%d/%Y %I:%M %p") %></td>
+    <% if phys_for_apt %>
     <td><%= link_to "#{phys_for_apt.lastname}, #{phys_for_apt.firstname}", phys_for_apt %></td>
+    <% else %>
+    <td>None</td>
+    <% end %>
+    <% if pat_for_apt %>
     <td><%= link_to "#{pat_for_apt.lastname}, #{pat_for_apt.firstname}", pat_for_apt %></td>
+    <% else %>
+    <td>None</td>
+    <% end %>
     <td><%= link_to 'Show', appointment %></td>
     <td><%= link_to 'Edit', edit_appointment_path(appointment) %></td>
     <td><%= link_to "&#215".html_safe, appointment, :confirm => 'Are you sure?', :method => :delete %></td>

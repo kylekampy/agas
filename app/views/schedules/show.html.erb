@@ -14,7 +14,11 @@
 
 <p>
   <b>Phyisican:</b>
+  <% if phys_for_sch %>
   <%= link_to "#{phys_for_sch.lastname}, #{phys_for_sch.firstname}", phys_for_sch %>
+  <% else %>
+  None
+  <% end %>
 </p>
 
 

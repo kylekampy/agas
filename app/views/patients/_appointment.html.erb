@@ -4,8 +4,16 @@
   <tr>
     <td><%= f.start_time %></td>
     <td><%= f.end_time %></td>
+    <% if phys_for_apt %>
     <td><%= link_to "#{phys_for_apt.lastname}, #{phys_for_apt.firstname}", phys_for_apt %></td>
+    <% else %>
+    <td>None</td>
+    <% end %>
+    <% if pat_for_apt %>
     <td><%= link_to "#{pat_for_apt.lastname}, #{pat_for_apt.firstname}", pat_for_apt %></td>
+    <% else %>
+    <td>None</td>
+    <% end %>
     <td><%= link_to 'Show', f %></td>
     <td><%= link_to 'Edit', edit_appointment_path(f) %></td>
     <td><%= link_to "&#215".html_safe, f, :confirm => 'Are you sure?', :method => :delete %></td>

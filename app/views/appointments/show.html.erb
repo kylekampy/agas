@@ -16,12 +16,20 @@
 
 <p>
   <b>Physician:</b>
+  <% if phys_for_apt %>
   <%= link_to "#{phys_for_apt.lastname}, #{phys_for_apt.firstname}", phys_for_apt %>
+  <% else %>
+  None
+  <% end %>
 </p>
 
 <p>
   <b>Patient:</b>
+  <% if pat_for_apt %>
   <%= link_to "#{pat_for_apt.lastname}, #{pat_for_apt.firstname}", pat_for_apt %>
+  <% else %>
+  None
+  <% end %>
 </p>
 
 
