@@ -50,14 +50,12 @@ class PhysiciansController < ApplicationController
   def create
     @physician = Physician.new(params[:physician])
 
-    respond_to do |format|
       if @physician.save
-        flash[:notice] = "Successfully created physician"
-        redirect_to @physician
+        format.html { redirect_to @physician, :notice => 'Physician was successfully updated.' }
+        format.json { head :ok }
       else
         render :action => 'new'
       end
-    end
   end
 
   # PUT /physicians/1
