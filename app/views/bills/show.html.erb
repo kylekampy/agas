@@ -1,0 +1,30 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Id:</b>
+  <%= @bill.id %>
+</p>
+
+<p>
+  <b>Unique hash:</b>
+  <%= @bill.unique_hash %>
+</p>
+
+<p>
+  <b>Status:</b>
+  <%= @bill.status %>
+</p>
+
+<p>
+  <b>Price:</b>
+  <%= @bill.price %>
+</p>
+
+<p>
+  <b>Insurance coverage:</b>
+  <%= @bill.insurance_coverage %>
+</p>
+
+
+<%= link_to 'Edit', edit_bill_path(@bill) %> |
+<%= link_to 'Back', bills_path %>

@@ -16,7 +16,7 @@
            if (is_phys)
            link_to("#{current_user.firstname} #{current_user.lastname}", current_user, {:id => "header_link"})
         elsif (is_admin)
-        link_to("#{current_login.username}", current_user, {:id => "header_link"})
+        link_to("#{current_user.name}", current_user, {:id => "header_link"})
         elsif (is_medstaff)
         link_to("#{current_user.firstname} #{current_user.lastname}", current_user, {:id => "header_link"})
         end

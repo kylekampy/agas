@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  id: 1
+  unique_hash: MyString
+  status: MyString
+  price: 1.5
+  insurance_coverage: 1.5
+
+two:
+  id: 1
+  unique_hash: MyString
+  status: MyString
+  price: 1.5
+  insurance_coverage: 1.5

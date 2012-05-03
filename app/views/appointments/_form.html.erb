@@ -21,11 +21,11 @@
   </div>
   <div class="field">
     <%= f.label :phy_id, "Physician" %><br />
-    <%= f.number_field :phy_id %>
+    <%= f.select("phy_id", Physician.all.collect {|p| [ "#{p.lastname}, #{p.firstname}", p.id ] }, {:include_blank => 'None'})%>
   </div>
   <div class="field">
     <%= f.label :pat_id, "Patient" %><br />
-    <%= f.number_field :pat_id %>
+    <%= f.select("pat_id", Patient.all.collect {|p| [ "#{p.lastname}, #{p.firstname}", p.id ] }, {:include_blank => 'None' }) %>
   </div>
   <div class="actions">
     <%= f.submit %>

@@ -1,11 +1,13 @@
 class Appointment < ActiveRecord::Base
   belongs_to :patient, :foreign_key => 'pat_id'
   belongs_to :physician, :foreign_key => 'phy_id'
-
+  validates_presence_of :start_time, :end_time, :pat_id, :phy_id
   validate :is_valid_apt_time
 
   def is_valid_apt_time
-    if(!is_available?(self.start_time, self.end_time))
+    if(!self.start_time || !self.end_time || !self.pat_id || !self.phy_id)
+      false
+    elsif(!is_available?(self.start_time, self.end_time))
       self.errors[:base] << "This physician does not have that time available for an appointment."
     end
   end

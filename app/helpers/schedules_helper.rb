@@ -8,7 +8,7 @@ module SchedulesHelper
     end
     ret_schedules = []
     schedules.each do |schedule|
-      if(schedule.start_time > Time.now && schedule.start_time < (Time.now + time_dilation))
+      if(schedule.start_time > (Time.now-86400) && schedule.start_time < (Time.now + time_dilation))
         ret_schedules << schedule
       end
     end

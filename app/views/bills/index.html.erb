@@ -1,0 +1,31 @@
+<h1>Listing bills</h1>
+
+<table>
+  <tr>
+    <th>Id</th>
+    <th>Unique hash</th>
+    <th>Status</th>
+    <th>Price</th>
+    <th>Insurance coverage</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @bills.each do |bill| %>
+  <tr>
+    <td><%= bill.id %></td>
+    <td><%= bill.unique_hash %></td>
+    <td><%= bill.status %></td>
+    <td><%= bill.price %></td>
+    <td><%= bill.insurance_coverage %></td>
+    <td><%= link_to 'Show', bill %></td>
+    <td><%= link_to 'Edit', edit_bill_path(bill) %></td>
+    <td><%= link_to 'Destroy', bill, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Bill', new_bill_path %>
