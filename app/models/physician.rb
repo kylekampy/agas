@@ -5,8 +5,7 @@ class Physician < ActiveRecord::Base
  has_many :emails, :as => :owner, :dependent => :destroy
  has_many :medical_staffs
  has_many :appointments, :foreign_key => 'phy_id'
- validates_presence_of :firstname 
- validates_presence_of :lastname
+ validates_presence_of :firstname, :lastname, :specialty, :office_num
 
  accepts_nested_attributes_for :login, :allow_destroy => true
  accepts_nested_attributes_for :addresses, :allow_destroy => true 

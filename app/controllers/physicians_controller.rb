@@ -52,10 +52,11 @@ class PhysiciansController < ApplicationController
 
     respond_to do |format|
       if @physician.save
-        flash[:notice] = "Successfully created physician"
-        redirect_to @physician
+        format.html { redirect_to @physician, :notice => "Successfully created physician" }
+        format.json { render :json => @patient, :status => :created, :location => @patient }
       else
-        render :action => 'new'
+        format.html {render :action => 'new'}
+        format.json {render :json => @patient.errors, :status => :unprocessable_entity }
       end
     end
   end

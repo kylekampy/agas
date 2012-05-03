@@ -28,6 +28,10 @@
     <%= f.select("doc_id", Physician.all.collect {|p| [ "#{p.lastname}, #{p.firstname}", p.id ] }, {:include_blank => 'None'})%>
   </div>
 
+   <%= f.fields_for :login do |login| %>
+	<%= render :partial => "logins/login_fields",:locals => { :f => login } %> 
+   <% end %>
+
   <%= f.fields_for :phones do |phone|%>
     <%= render"phone_fields", :f => phone%>
   <% end %>
