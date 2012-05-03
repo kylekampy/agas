@@ -32,7 +32,7 @@
     <%= f.text_field :office_num %>
   </div>
    <%= f.fields_for :login do |login| %>
-	<%= render :partial => "logins/login_fields",:locals => { :f => login } %> 
+		<%= render :partial => "logins/login_fields",:locals => { :f => login } %> 
    <% end %>
 
   <%= f.fields_for :addresses  do |address| %>

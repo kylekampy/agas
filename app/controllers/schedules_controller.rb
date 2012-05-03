@@ -10,7 +10,6 @@ class SchedulesController < ApplicationController
   def index
 
     @schedules = Schedule.order(sort_column + " " + sort_direction)
-
     respond_to do |format|
       format.html # index.html.erb
     end
