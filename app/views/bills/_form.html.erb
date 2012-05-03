@@ -11,10 +11,23 @@
     </div>
   <% end %>
 
+  <% if(@bill.phys_id) %>
   <div class="field">
-    <%= f.label :id %><br />
-    <%= f.number_field :id %>
+    <%= f.label "Physician" %><br />
+    <%= f.select("phys_id", Physician.all.collect {|p| [ "#{p.lastname}, #{p.firstname}", p.id ] }, {:include_blank => 'None'})%>
   </div>
+  <% end %>
+  <% if(@bill.medstaff_id) %>
+  <div class="field">
+    <%= f.label "Medical Staffer" %><br />
+    <%= f.select("medstaff_id", MedicalStaff.all.collect {|p| [ "#{p.lastname}, #{p.firstname}", p.id ]}, {:include_blank => 'None'})%>
+  </div>
+  <% end %>
+  <div class="field">
+    <%= f.label "Patient" %><br />
+    <%= f.select("pat_id", Patient.all.collect {|p| [ "#{p.lastname}, #{p.firstname}", p.id ]}, {:include_blank => 'None'})%>
+  </div>
+
   <div class="field">
     <%= f.label :unique_hash %><br />
     <%= f.text_field :unique_hash %>
@@ -30,6 +43,18 @@
   <div class="field">
     <%= f.label :insurance_coverage %><br />
     <%= f.text_field :insurance_coverage %>
+  </div>
+  <div class="field">
+    <%= f.label :date %><br />
+    <%= f.date_select :date %>
+  </div>
+  <div class="field">
+    <%= f.label :time %><br />
+    <%= f.time_select :time %>
+  </div>
+  <div class="field">
+    <%= f.label :codes %><br />
+    <%= f.text_field :codes %>
   </div>
   <div class="actions">
     <%= f.submit %>

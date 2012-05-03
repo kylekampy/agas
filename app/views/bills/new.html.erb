@@ -1,5 +1,7 @@
-<h1>New bill</h1>
+<% content_for :title, "New Bill" %>
 
-<%= render 'form' %>
+<p>Please upload the provided EMR XML file, containing the appointment information.</p><br />
+
+<%= render 'upload' %>
 
 <%= link_to 'Back', bills_path %>

@@ -1,19 +1,13 @@
 module BillHelper
 
-  def get_record_list
-    valid_bills = []
-    files = Dir.glob(File.join(Rails.root,"public","emr","*.xml"))
-    files.each do |file|
-      bill = generate_new_bill(file)
-      valid_bills << bill if bill != nil
-    end
-    valid_bills
+  def get_record_list(file)
+    bill = generate_new_bill(file)
+    bill
   end
 
   def generate_new_bill(file)
     begin
       require 'rexml/document'
-      file = File.new(file)
       doc = REXML::Document.new(file)
       bills = []
       doc.elements.each("Emrs/Record") do |record|
