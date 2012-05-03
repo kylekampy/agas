@@ -4,8 +4,8 @@ class Patient < ActiveRecord::Base
   has_many :phones, :as => :owner, :dependent => :destroy
   has_many :emails, :as => :owner, :dependent => :destroy
   has_many :appointments, :foreign_key => 'pat_id'
-  validates_presence_of :firstname
-  validates_presence_of :lastname
+  validates_presence_of :firstname, :lastname, :primary_phy_id, :gender, :date_of_birth, :emergency_contact, :pharmacy_id, :insurance_id
+
   accepts_nested_attributes_for :addresses, :allow_destroy => true
   accepts_nested_attributes_for :phones, :allow_destroy => true
   accepts_nested_attributes_for :emails, :allow_destroy => true
