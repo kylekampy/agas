@@ -2,6 +2,38 @@
 
 <p id="notice"><%= notice %></p>
 
+<% if(@bill.phys_id) %>
+<% phys = Physician.find_by_id(@bill.phys_id) %>
+<p>
+  <b>Physician:</b>
+  <% if phys %>
+  <%= link_to "#{phys.lastname}, #{phys.firstname}", phys %>
+  <% else %>
+  None
+  <% end %>
+</p>
+<% end %>
+<% if(@bill.medstaff_id) %>
+<% medstaff = MedicalStaffs.find_by_id(@bill.medstaff_id) %>
+<p>
+  <b>Medical Staffer:</b>
+  <% if medstaff %>
+  <%= link_to "#{medstaff.lastname}, #{medstaff.firstname}", medstaff %>
+  <% else %>
+  None
+  <% end %>
+</p>
+<% end %>
+<% pat = Patient.find_by_id(@bill.pat_id) %>
+<p>
+  <b>Patient:</b>
+  <% if pat %>
+  <%= link_to "#{pat.lastname}, #{pat.firstname}", pat %>
+  <% else %>
+  None
+  <% end %>
+</p>
+
 <p>
   <b>Id:</b>
   <%= @bill.id %>
@@ -52,7 +84,6 @@
   <%= number_to_currency (@bill.price - @bill.insurance_coverage - @bill.payment) %>
 </p>
 
-
 <% if(@bill.phys_id) %>
 <% phys = Physician.find_by_id(@bill.phys_id) %>
 <p>
@@ -78,7 +109,11 @@
 <% pat = Patient.find_by_id(@bill.pat_id) %>
 <p>
   <b>Patient:</b>
+  <% if pat %>
   <%= link_to "#{pat.lastname}, #{pat.firstname}", pat %>
+  <% else %>
+  None
+  <% end %>
 </p>
 
 
