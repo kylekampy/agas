@@ -181,7 +181,7 @@ private
   def get_coverage(bill, hash)
     #Construct an XML claim file/string
     claim = ""
-    claim += "<claim queryFlag=\"1\" subscriberID=\"99#{bill.patient_id}\" externalID=\"#{hash}\">\n"
+    claim += "<claim queryFlag=\"0\" subscriberID=\"99#{bill.patient_id}\" externalID=\"#{hash}\">\n"
     bill.actions.each do |action|
       claim += "\t<transaction externalID=\"#{action[:id]}\" amountBilled=\"#{price_for_code(action[:code])}\" ICD9=\"#{action[:code]}\" physicianName=\"#{get_phys_name_for_action(action)}\" medicalStaffName=\"#{get_medical_staff_name_for_action(action)}\" />\n"
     end
