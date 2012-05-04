@@ -2,120 +2,36 @@
 
 <p id="notice"><%= notice %></p>
 
-<% if(@bill.phys_id) %>
-<% phys = Physician.find_by_id(@bill.phys_id) %>
+<div class="bill">
+<% phys = Physician.find_by_id(@bill.phys_id) if(@bill.phys_id) %>
+<% medstaff = MedicalStaffs.find_by_id(@bill.medstaff_id) if(@bill.medstaff_id) %>
+<% pat = Patient.find_by_id(@bill.pat_id) if (@bill.pat_id) %>
+<h1><%= "Bill for #{pat.firstname} #{pat.lastname}" %></h1>
 <p>
-  <b>Physician:</b>
+  <b>Bill Service Number:</b> <%= @bill.id %><br/>
+  <b>Billing Address:</b>
+  <% if pat.addresses %>
+  <% add = pat.addresses[0] %>
+  <%= "#{add.street}, #{add.city} #{add.state}. #{add.zip}" %><br/>
+  <% else %>
+  Unavailable<br/>
+  <% end %>
+  <b>Appointment Date:</b> <%= @bill.date %><br/>
+  <b>Appointment Time:</b> <%= @bill.time.strftime("%I:%M %p") %><br/>
   <% if phys %>
-  <%= link_to "#{phys.lastname}, #{phys.firstname}", phys %>
+  <b>Physician:</b> <%= "#{phys.lastname}, #{phys.firstname}" %><br/>
+  <% elsif medstaff %>
+  <b>Medical Staff:</b> <%= "#{medstaff.lastname}, #{medstaff.firstname}" %><br/>
   <% else %>
-  None
+  <b>Serviced by:</b> Unavailable<br/>
   <% end %>
-</p>
-<% end %>
-<% if(@bill.medstaff_id) %>
-<% medstaff = MedicalStaffs.find_by_id(@bill.medstaff_id) %>
-<p>
-  <b>Medical Staffer:</b>
-  <% if medstaff %>
-  <%= link_to "#{medstaff.lastname}, #{medstaff.firstname}", medstaff %>
-  <% else %>
-  None
-  <% end %>
-</p>
-<% end %>
-<% pat = Patient.find_by_id(@bill.pat_id) %>
-<p>
-  <b>Patient:</b>
-  <% if pat %>
-  <%= link_to "#{pat.lastname}, #{pat.firstname}", pat %>
-  <% else %>
-  None
-  <% end %>
-</p>
-
-<p>
-  <b>Id:</b>
-  <%= @bill.id %>
-</p>
-
-<p>
-  <b>Unique hash:</b>
-  <%= @bill.unique_hash %>
-</p>
-
-<p>
-  <b>Date:</b>
-  <%= @bill.date %>
-</p>
-
-<p>
-  <b>Time:</b>
-  <%= @bill.time.strftime("%I:%M %p") %>
-</p>
-
-<p>
-  <b>Status:</b>
-  <%= @bill.status %>
-</p>
-
-<p>
-  <b>Codes:</b>
-  <%= @bill.codes %>
-</p>
-
-<p>
-  <b>Price:</b>
-  <%= number_to_currency @bill.price %>
-</p>
-
-<p>
-  <b>Insurance coverage:</b>
-  <%= number_to_currency @bill.insurance_coverage %>
-</p>
-
-<p>
-  <b>Payment:</b>
-  <%= number_to_currency @bill.payment %>
-</p>
-
-<p>
-  <b>Amount Remaining:</b>
-  <%= number_to_currency (@bill.price - @bill.insurance_coverage - @bill.payment) %>
-</p>
-
-<% if(@bill.phys_id) %>
-<% phys = Physician.find_by_id(@bill.phys_id) %>
-<p>
-  <b>Physician:</b>
-  <% if phys %>
-  <%= link_to "#{phys.lastname}, #{phys.firstname}", phys %>
-  <% else %>
-  None
-  <% end %>
-</p>
-<% end %>
-<% if(@bill.medstaff_id) %>
-<% medstaff = MedicalStaffs.find_by_id(@bill.medstaff_id) %>
-<p>
-  <b>Medical Staffer:</b>
-  <% if medstaff %>
-  <%= link_to "#{medstaff.lastname}, #{medstaff.firstname}", medstaff %>
-  <% else %>
-  None
-  <% end %>
-</p>
-<% end %>
-<% pat = Patient.find_by_id(@bill.pat_id) %>
-<p>
-  <b>Patient:</b>
-  <% if pat %>
-  <%= link_to "#{pat.lastname}, #{pat.firstname}", pat %>
-  <% else %>
-  None
-  <% end %>
-</p>
-
-
+  <b>Appointment Services:</b> <%= @bill.codes %><br/>
+  <b>Total Cost of Services:</b> <%= number_to_currency @bill.price %><br/>
+  <b>Total Covered by Insurance:</b> <%= number_to_currency @bill.insurance_coverage %><br/>
+  <b>Subtotal Remaining:</b> <%= number_to_currency(@bill.price - @bill.insurance_coverage) %><br/>
+  <b>Amount Currently Paid:</b> <%= number_to_currency @bill.payment %><br/><hr/><br/>
+  <h2>Total Amount Remaining: <%= number_to_currency(@bill.price - @bill.insurance_coverage - @bill.payment) %><h2>
+</div>
+<br/><br/><br/>
 <%= link_to 'Edit', edit_bill_path(@bill) %> |
 <%= link_to 'Back', bills_path %>
